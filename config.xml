@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.jqmshow.MyComicBooks" version="1.00">
 <name>My Comic Books</name>
-<description>Demonstrate SplitView, Relational Comboboxes, DatePicker, ListView, Tables & Toggle Columns, Export to Excel using JQuery Mobile & PhoneGap</description>
+<description>My Comics Books Collection powered by JQM.Show</description>
 <author email="anele@mbangas.com" href="http://www.mbangas.com"> Anele Mbanga</author>
 <icon src="app512.png" />
 <icon src="apps57.png" height="57" width="57"/>

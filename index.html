@@ -1,0 +1,2605 @@
+<!DOCTYPE html>
+<html manifest="index.appcache">
+<head>
+<title>My Comic Books</title>
+<meta charset='utf-8'/>
+<meta name='format-detection' content='telephone=no' />
+<meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1'/>
+<meta name='playstore' content='https://play.google.com/store/apps/details?id=com.b4a.JQMShow'/>
+<meta name='apple-mobile-web-app-cabable' content='YES'/>
+<meta name='keywords' content='JQM.Show,JQuery Mobile,JQuery,JavaScript,Google Play Store,Anele Mbanga,Mobile,Hybrid,HTML,CSS,Responsive,HTML5'/>
+<meta name='mobile-web-app-capable' content='yes'/>
+<meta name='apple-mobile-web-app-title' content='My Comic Books'/>
+<meta name='apple-mobile-web-app-status-bar-style' content='black-translucent.'/>
+<meta name='version' content='1.00' />
+<meta name='generator' content='JQM.Show 1.01' />
+<meta name='date' content='2015-03-10 08:24' />
+<meta name='copyright' content='Anele Mbanga ' />
+<meta name='author' content=' Anele Mbanga' />
+<meta name='email' content='anele@mbangas.com' />
+<meta name='website' content='http://www.mbangas.com' />
+<meta name='description' content='Demonstrate SplitView, Relational Comboboxes, DatePicker, ListView, Tables & Toggle Columns, Export to Excel using JQuery Mobile & PhoneGap. Available from Android Play Store at https://play.google.com/store/apps/details?id=com.b4a.JQMShow' />
+<link rel="apple-touch-icon" href="apps.png">
+<link rel="icon" type="image/png" href="apps.png">
+<link rel="shortcut icon" type="image/png" href="apps.png">
+<link rel="apple-touch-icon" sizes="57x57" href="apps57.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apps72.png">
+<link rel="apple-touch-icon" sizes="80x80" href="apps80.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apps114.png">
+<link rel="apple-touch-icon-precomposed" href="appsIconPreComposed.png">
+<link rel="apple-touch-startup-image" href="appsIconStartUp320by460.png">
+<link rel="stylesheet" href="jquery.mobile-1.4.5.min.css">
+<link rel="stylesheet" href="toastr.min.css">
+<link rel="stylesheet" href="listview-grid.css">
+<link rel="stylesheet" href="jqm-datebox.css">
+<script src="jquery.min.js" type="text/javascript"></script>
+<script src="navbar.js" type="text/javascript"></script>
+<script src="jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+<script src="jqm-datebox.core.js" type="text/javascript"></script>
+<script src="jqm-datebox.mode.slidebox.js" type="text/javascript"></script>
+<script src="jqm-datebox.mode.flipbox.js" type="text/javascript"></script>
+<script src="jqm-datebox.mode.datebox.js" type="text/javascript"></script>
+<script src="jqm-datebox.mode.customflip.js" type="text/javascript"></script>
+<script src="jqm-datebox.mode.custombox.js" type="text/javascript"></script>
+<script src="jqm-datebox.mode.calbox.js" type="text/javascript"></script>
+<script src="toastr.min.js" type="text/javascript"></script>
+<script src="fastclick.js" type="text/javascript"></script>
+<!--[if IE]>
+<script src="html5.js" type="text/javascript"></script>
+<![endif]-->
+<script src="stanfordcryptolibrary.js" type="text/javascript"></script>
+<script src="excellentexport.min.js" type="text/javascript"></script>
+<style>.ui-header .ui-title, .ui-footer .ui-title {margin-right: 0 !important; margin-left: 0 !important;}
+.marker {max-width: 100%; max-height: 100%;}
+.tab-content {display:none;}
+.tab-content:first-child { display: block;}
+tr { border-bottom: 1px solid #d6d6d6;}
+th { border-bottom: 1px solid #d6d6d6;}
+caption {font-weight: bold; font-size: 1.1em;}
+.ui-li .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li { display: block !important; padding: 0.9em 75px 0.9em 15px !important;}
+div.ui-slider-switch {position: absolute !important; right: 10px !important; width: 100px !important;}
+</style>
+</head>
+<body><div id="pgMenu" data-role="page" data-theme="b" class="my-page">
+
+<header id="pgMenuheader" data-role="header" data-position="fixed">
+<h1>My Comic Books</h1>
+</header>
+<div id="pgMenucontent" data-role="content">
+<ul data-role="listview" data-inset="true" id="sbItems">
+<li data-icon="false"><a data-transition="slide" id="sbComicBook" href="#pgAddComicBook"><h2>Comic Books</h2><p>Maintain Comic Books</p><img height="200" width="100%" src="apps80.png" alt="Comic Books" class="ui-li-thumb"></img></a></li>
+<li data-icon="false"><a data-transition="slide" id="sbBookType" href="#pgAddBookType"><h2>Book Types</h2><p>Maintain Book Types</p><img height="200" width="100%" src="apps80.png" alt="Book Types" class="ui-li-thumb"></img></a></li>
+<li data-icon="false"><a data-transition="slide" id="sbGrade" href="#pgAddGrade"><h2>Grades</h2><p>Maintain Grades</p><img height="200" width="100%" src="apps80.png" alt="Grades" class="ui-li-thumb"></img></a></li>
+<li data-icon="false"><a data-transition="slide" id="sbReports" href="#pgReports"><h2>Reports</h2><p>Access Reports</p><img height="200" width="100%" src="apps80.png" alt="Reports" class="ui-li-thumb"></img></a></li>
+</ul>
+</div>
+
+<footer id="pgMenufooter" data-role="footer" data-position="fixed">
+<h1>Powered by JQM.Show © Anele Mbanga 2015</h1>
+</footer></div>
+<div id="pgReports" data-role="page" data-theme="b" class="my-page">
+
+<header id="pgReportsheader" data-role="header" data-position="fixed">
+<h1>My Comic Books > Reports</h1>
+</header>
+<div id="pgReportscontent" data-role="content">
+<ul data-role="listview" data-inset="true" id="sbRptItems">
+<li data-icon="false"><a data-transition="slide" id="sbRptBack" href="#pgMenu"><h2>Main Menu</h2><p>Go to Main Menu</p><img height="200" width="100%" src="apps80.png" alt="Main Menu" class="ui-li-thumb"></img></a></li>
+<li data-icon="false"><a data-transition="slide" id="sbRptComicBook" href="#pgRptComicBook"><h2>Comic Books Report</h2><p>View & Export Comic Books</p><img height="200" width="100%" src="apps80.png" alt="Comic Books" class="ui-li-thumb"></img></a></li>
+<li data-icon="false"><a data-transition="slide" id="sbRptBookType" href="#pgRptBookType"><h2>Book Types Report</h2><p>View & Export Book Types</p><img height="200" width="100%" src="apps80.png" alt="Book Types" class="ui-li-thumb"></img></a></li>
+<li data-icon="false"><a data-transition="slide" id="sbRptGrade" href="#pgRptGrade"><h2>Grades Report</h2><p>View & Export Grades</p><img height="200" width="100%" src="apps80.png" alt="Grades" class="ui-li-thumb"></img></a></li>
+</ul>
+</div>
+
+<footer id="pgReportsfooter" data-role="footer" data-position="fixed">
+<h1>Powered by JQM.Show © Anele Mbanga 2015</h1>
+</footer></div>
+<div id="pgComicBook" data-role="page">
+
+<header id="pgComicBookheader" data-role="header" data-position="fixed">
+<h1>My Comic Books > Comic Books</h1>
+<a data-role="button" id="pgComicBookBack" data-icon="arrow-l" class="ui-btn-left">Back</a>
+<a data-role="button" id="pgComicBookNew" data-icon="plus" data-theme="b" class="ui-btn-right">New</a>
+</header>
+<div id="pgComicBookcontent" data-role="content">
+<ul data-role="listview" data-inset="true" id="pgComicBookList" data-autodividers="true" data-filter="true" data-filter-placeholder="Search Comic Books" data-filter-reveal="false">
+<li data-role="list-divider">Your Comic Books</li>
+<li id="noComicBook">You have no comic books</li>
+
+</ul>
+</div>
+
+</div>
+
+<div id="pgRptComicBook" data-role="page">
+
+<header id="pgRptComicBookheader" data-role="header" data-position="fixed">
+<h1>My Comic Books > Comic Books</h1>
+<a data-role="button" id="pgRptComicBookBack" data-icon="arrow-l" class="ui-btn-left">Back</a>
+<a data-role="button" id="pgRptComicBookNew" data-icon="plus" data-theme="b" class="ui-btn-right">New</a>
+</header>
+<div id="pgRptComicBookcontent" data-role="content">
+<table id="RptComicBook" data-column-btn-text="Columns To Display" data-column-btn-theme="b" data-role="table" data-mode="columntoggle" data-column-popup-theme="a" class="ui-responsive table-stroke table-stripe ui-shadow ui-body-d">
+<caption>Comic Books Report</caption>
+<thead>
+<tr class="ui-bar-d">
+<th >Title</th>
+<th data-priority="2">Issue Number</th>
+<th data-priority="3">Grade</th>
+<th data-priority="4">Book Type</th>
+<th data-priority="5">Publication Date</th>
+<th data-priority="6">Book Value</th>
+<th data-priority="7">Price</th>
+<th data-priority="8">Signed</th>
+<th data-priority="9">Bagged</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+<tfoot>
+<tr><td></td></tr>
+<tr><td colspan="9">Powered by JQM.Show - https://play.google.com/store/apps/details?id=com.b4a.JQMShow</td></tr></tfoot>
+</table>
+<div data-role="fieldcontain">
+<a download="ComicBook.xls" onclick="return ExcellentExport.excel(this, 'RptComicBook', 'ComicBook');" id="pgRptComicBookExport" data-corners="true" href="#" class="ui-btn ui-shadow">Export to Excel</a></div>
+</div>
+
+</div>
+
+<div id="pgAddComicBook" data-role="page">
+
+<header id="pgAddComicBookheader" data-role="header" data-position="fixed">
+<h1>My Comic Books > Add Comic Book</h1>
+</header>
+<div id="pgAddComicBookcontent" data-role="content">
+<div style="width:30%;float:left;">
+<ul data-role="listview" data-inset="true" id="pgAddComicBookList" data-autodividers="true" data-filter="true" data-filter-placeholder="Search Comic Books" data-filter-reveal="false">
+<li data-role="list-divider">Your Comic Books</li>
+<li id="noComicBook">You have no comic books</li>
+
+</ul>
+</div>
+<div style="width:65%;float:left;margin-left:35px;">
+<form action="#" method="post" id="pgAddComicBookForm" name="pgAddComicBookForm">
+<div data-role="fieldcontain">
+<label for="pgAddComicBookTitle" id="lblpgAddComicBookTitle">Title<span style='color:red;'>*</span></label>
+<input required title="Enter title here." type="text" name="pgAddComicBookTitle" id="pgAddComicBookTitle" placeholder="Enter title here." autocomplete="off" data-clear-btn="true"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgAddComicBookIssueNumber" id="lblpgAddComicBookIssueNumber">Issue Number<span style='color:red;'>*</span></label>
+<input required title="Enter issue number here." type="number" name="pgAddComicBookIssueNumber" id="pgAddComicBookIssueNumber" placeholder="Enter issue number here." autocomplete="off" data-clear-btn="true"></input>
+</div>
+<div dir="ltr" data-role="fieldcontain">
+<label for="pgAddComicBookGrade" id="lblpgAddComicBookGrade">Grade<span style='color:red;'>*</span></label>
+<select name="pgAddComicBookGrade" id="pgAddComicBookGrade" data-native-menu="false" data-mini="true" data-inline="true" dir="ltr" class="required">
+<option value="null" data-placeholder="true">Select Grade</option>
+<option ></option>
+</select>
+</div>
+<div dir="ltr" data-role="fieldcontain">
+<label for="pgAddComicBookBookType" id="lblpgAddComicBookBookType">Book Type<span style='color:red;'>*</span></label>
+<select name="pgAddComicBookBookType" id="pgAddComicBookBookType" data-native-menu="false" data-mini="true" data-inline="true" dir="ltr" class="required">
+<option value="null" data-placeholder="true">Select Book Type</option>
+<option ></option>
+</select>
+</div>
+<div data-role="fieldcontain">
+<label for="pgAddComicBookPublicationDate" id="lblpgAddComicBookPublicationDate">Publication Date<span style='color:red;'>*</span></label>
+<input required data-options='{"mode":"flipbox","dateFormat":"%Y-%m-%d","overrideDateFormat":"%Y-%m-%d"}' title="Enter publication date here." type="text" name="pgAddComicBookPublicationDate" id="pgAddComicBookPublicationDate" placeholder="Enter publication date here." autocomplete="off" data-role="datebox"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgAddComicBookBookValue" id="lblpgAddComicBookBookValue">Book Value<span style='color:red;'>*</span></label>
+<input required title="Enter book value here." type="number" name="pgAddComicBookBookValue" id="pgAddComicBookBookValue" placeholder="Enter book value here." autocomplete="off" data-clear-btn="true"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgAddComicBookPrice" id="lblpgAddComicBookPrice">Price<span style='color:red;'>*</span></label>
+<input required title="Enter price here." type="number" name="pgAddComicBookPrice" id="pgAddComicBookPrice" placeholder="Enter price here." autocomplete="off" data-clear-btn="true"></input>
+</div>
+<div data-role="fieldcontain">
+<input required title="" type="checkbox" name="pgAddComicBookSigned" id="pgAddComicBookSigned" autocomplete="off" value="Signed"></input>
+<label for="pgAddComicBookSigned" id="lblpgAddComicBookSigned">Signed<span style='color:red;'>*</span></label>
+</div>
+<div data-role="fieldcontain">
+<input required title="" type="checkbox" name="pgAddComicBookBagged" id="pgAddComicBookBagged" autocomplete="off" value="Bagged"></input>
+<label for="pgAddComicBookBagged" id="lblpgAddComicBookBagged">Bagged<span style='color:red;'>*</span></label>
+</div>
+<div><button type="submit" id="pgAddComicBookSave" class="ui-btn ui-corner-all ui-shadow ui-btn-b">Save Comic Book</button>
+</div>
+<div><button id="pgAddComicBookDelete" class="ui-btn ui-corner-all ui-shadow">Delete Comic Book</button>
+</div>
+<div><button id="pgAddComicBookBack" class="ui-btn ui-corner-all ui-shadow">Cancel</button>
+</div>
+</form>
+</div>
+</div>
+
+</div>
+
+<div data-url="Title" id="pgEditComicBook" data-role="page">
+
+<header id="pgEditComicBookheader" data-role="header" data-position="fixed">
+<h1>My Comic Books > Edit Comic Book</h1>
+</header>
+<div id="pgEditComicBookcontent" data-role="content">
+<div style="width:30%;float:left;">
+<ul data-role="listview" data-inset="true" id="pgEditComicBookList" data-autodividers="true" data-filter="true" data-filter-placeholder="Search Comic Books" data-filter-reveal="false">
+<li data-role="list-divider">Your Comic Books</li>
+<li id="noComicBook">You have no comic books</li>
+
+</ul>
+</div>
+<div style="width:65%;float:left;margin-left:35px;">
+<form action="#" method="post" id="pgEditComicBookForm" name="pgEditComicBookForm">
+<div data-role="fieldcontain">
+<label for="pgEditComicBookTitle" id="lblpgEditComicBookTitle">Title<span style='color:red;'>*</span></label>
+<input required readonly="readonly" data-clear-btn="true" autofocus="true" title="Enter title here." type="text" name="pgEditComicBookTitle" id="pgEditComicBookTitle" placeholder="Enter title here." autocomplete="off"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgEditComicBookIssueNumber" id="lblpgEditComicBookIssueNumber">Issue Number<span style='color:red;'>*</span></label>
+<input required title="Enter issue number here." type="number" name="pgEditComicBookIssueNumber" id="pgEditComicBookIssueNumber" placeholder="Enter issue number here." autocomplete="off" data-clear-btn="true"></input>
+</div>
+<div dir="ltr" data-role="fieldcontain">
+<label for="pgEditComicBookGrade" id="lblpgEditComicBookGrade">Grade<span style='color:red;'>*</span></label>
+<select name="pgEditComicBookGrade" id="pgEditComicBookGrade" data-native-menu="false" data-mini="true" data-inline="true" dir="ltr" class="required">
+<option value="null" data-placeholder="true">Select Grade</option>
+<option ></option>
+</select>
+</div>
+<div dir="ltr" data-role="fieldcontain">
+<label for="pgEditComicBookBookType" id="lblpgEditComicBookBookType">Book Type<span style='color:red;'>*</span></label>
+<select name="pgEditComicBookBookType" id="pgEditComicBookBookType" data-native-menu="false" data-mini="true" data-inline="true" dir="ltr" class="required">
+<option value="null" data-placeholder="true">Select Book Type</option>
+<option ></option>
+</select>
+</div>
+<div data-role="fieldcontain">
+<label for="pgEditComicBookPublicationDate" id="lblpgEditComicBookPublicationDate">Publication Date<span style='color:red;'>*</span></label>
+<input required data-options='{"mode":"flipbox","dateFormat":"%Y-%m-%d","overrideDateFormat":"%Y-%m-%d"}' title="Enter publication date here." type="text" name="pgEditComicBookPublicationDate" id="pgEditComicBookPublicationDate" placeholder="Enter publication date here." autocomplete="off" data-role="datebox"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgEditComicBookBookValue" id="lblpgEditComicBookBookValue">Book Value<span style='color:red;'>*</span></label>
+<input required title="Enter book value here." type="number" name="pgEditComicBookBookValue" id="pgEditComicBookBookValue" placeholder="Enter book value here." autocomplete="off" data-clear-btn="true"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgEditComicBookPrice" id="lblpgEditComicBookPrice">Price<span style='color:red;'>*</span></label>
+<input required title="Enter price here." type="number" name="pgEditComicBookPrice" id="pgEditComicBookPrice" placeholder="Enter price here." autocomplete="off" data-clear-btn="true"></input>
+</div>
+<div data-role="fieldcontain">
+<input required title="" type="checkbox" name="pgEditComicBookSigned" id="pgEditComicBookSigned" autocomplete="off" value="Signed"></input>
+<label for="pgEditComicBookSigned" id="lblpgEditComicBookSigned">Signed<span style='color:red;'>*</span></label>
+</div>
+<div data-role="fieldcontain">
+<input required title="" type="checkbox" name="pgEditComicBookBagged" id="pgEditComicBookBagged" autocomplete="off" value="Bagged"></input>
+<label for="pgEditComicBookBagged" id="lblpgEditComicBookBagged">Bagged<span style='color:red;'>*</span></label>
+</div>
+<div><button type="submit" id="pgEditComicBookUpdate" class="ui-btn ui-corner-all ui-shadow ui-btn-b">Update Comic Book</button>
+</div>
+<div><button id="pgEditComicBookDelete" class="ui-btn ui-corner-all ui-shadow">Delete Comic Book</button>
+</div>
+<div><button id="pgEditComicBookBack" class="ui-btn ui-corner-all ui-shadow">Cancel</button>
+</div>
+</form>
+</div>
+</div>
+
+</div>
+<div id="pgBookType" data-role="page">
+
+<header id="pgBookTypeheader" data-role="header" data-position="fixed">
+<h1>My Comic Books > Book Types</h1>
+<a data-role="button" id="pgBookTypeBack" data-icon="arrow-l" class="ui-btn-left">Back</a>
+<a data-role="button" id="pgBookTypeNew" data-icon="plus" data-theme="b" class="ui-btn-right">New</a>
+</header>
+<div id="pgBookTypecontent" data-role="content">
+<ul data-role="listview" data-inset="true" id="pgBookTypeList" data-filter="true" data-filter-placeholder="Search Book Types" data-filter-reveal="false">
+<li data-role="list-divider">Your Book Types</li>
+<li id="noBookType">You have no book types</li>
+
+</ul>
+</div>
+
+</div>
+
+<div id="pgRptBookType" data-role="page">
+
+<header id="pgRptBookTypeheader" data-role="header" data-position="fixed">
+<h1>My Comic Books > Book Types</h1>
+<a data-role="button" id="pgRptBookTypeBack" data-icon="arrow-l" class="ui-btn-left">Back</a>
+<a data-role="button" id="pgRptBookTypeNew" data-icon="plus" data-theme="b" class="ui-btn-right">New</a>
+</header>
+<div id="pgRptBookTypecontent" data-role="content">
+<table id="RptBookType" data-column-btn-text="Columns To Display" data-column-btn-theme="b" data-role="table" data-mode="columntoggle" data-column-popup-theme="a" class="ui-responsive table-stroke table-stripe ui-shadow ui-body-d">
+<caption>Book Types Report</caption>
+<thead>
+<tr class="ui-bar-d">
+<th >Type</th>
+<th data-priority="2">Description</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+<tfoot>
+<tr><td></td></tr>
+<tr><td colspan="2">Powered by JQM.Show - https://play.google.com/store/apps/details?id=com.b4a.JQMShow</td></tr></tfoot>
+</table>
+<div data-role="fieldcontain">
+<a download="BookType.xls" onclick="return ExcellentExport.excel(this, 'RptBookType', 'BookType');" id="pgRptBookTypeExport" data-corners="true" href="#" class="ui-btn ui-shadow">Export to Excel</a></div>
+</div>
+
+</div>
+
+<div id="pgAddBookType" data-role="page">
+
+<header id="pgAddBookTypeheader" data-role="header" data-position="fixed">
+<h1>My Comic Books > Add Book Type</h1>
+</header>
+<div id="pgAddBookTypecontent" data-role="content">
+<div style="width:30%;float:left;">
+<ul data-role="listview" data-inset="true" id="pgAddBookTypeList" data-filter="true" data-filter-placeholder="Search Book Types" data-filter-reveal="false">
+<li data-role="list-divider">Your Book Types</li>
+<li id="noBookType">You have no book types</li>
+
+</ul>
+</div>
+<div style="width:65%;float:left;margin-left:35px;">
+<form action="#" method="post" id="pgAddBookTypeForm" name="pgAddBookTypeForm">
+<div data-role="fieldcontain">
+<label for="pgAddBookTypeTypeName" id="lblpgAddBookTypeTypeName">Type<span style='color:red;'>*</span></label>
+<input required title="Enter type here." type="text" name="pgAddBookTypeTypeName" id="pgAddBookTypeTypeName" placeholder="Enter type here." autocomplete="off" data-clear-btn="true"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgAddBookTypeDescription" id="lblpgAddBookTypeDescription">Description<span style='color:red;'>*</span></label>
+<textarea name="pgAddBookTypeDescription" id="pgAddBookTypeDescription" placeholder="Enter description here." class="required"></textarea>
+</div>
+<div><button type="submit" id="pgAddBookTypeSave" class="ui-btn ui-corner-all ui-shadow ui-btn-b">Save Book Type</button>
+</div>
+<div><button id="pgAddBookTypeDelete" class="ui-btn ui-corner-all ui-shadow">Delete Book Type</button>
+</div>
+<div><button id="pgAddBookTypeBack" class="ui-btn ui-corner-all ui-shadow">Cancel</button>
+</div>
+</form>
+</div>
+</div>
+
+</div>
+
+<div data-url="TypeName" id="pgEditBookType" data-role="page">
+
+<header id="pgEditBookTypeheader" data-role="header" data-position="fixed">
+<h1>My Comic Books > Edit Book Type</h1>
+</header>
+<div id="pgEditBookTypecontent" data-role="content">
+<div style="width:30%;float:left;">
+<ul data-role="listview" data-inset="true" id="pgEditBookTypeList" data-filter="true" data-filter-placeholder="Search Book Types" data-filter-reveal="false">
+<li data-role="list-divider">Your Book Types</li>
+<li id="noBookType">You have no book types</li>
+
+</ul>
+</div>
+<div style="width:65%;float:left;margin-left:35px;">
+<form action="#" method="post" id="pgEditBookTypeForm" name="pgEditBookTypeForm">
+<div data-role="fieldcontain">
+<label for="pgEditBookTypeTypeName" id="lblpgEditBookTypeTypeName">Type<span style='color:red;'>*</span></label>
+<input required readonly="readonly" data-clear-btn="true" autofocus="true" title="Enter type here." type="text" name="pgEditBookTypeTypeName" id="pgEditBookTypeTypeName" placeholder="Enter type here." autocomplete="off"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgEditBookTypeDescription" id="lblpgEditBookTypeDescription">Description<span style='color:red;'>*</span></label>
+<textarea name="pgEditBookTypeDescription" id="pgEditBookTypeDescription" placeholder="Enter description here." class="required"></textarea>
+</div>
+<div><button type="submit" id="pgEditBookTypeUpdate" class="ui-btn ui-corner-all ui-shadow ui-btn-b">Update Book Type</button>
+</div>
+<div><button id="pgEditBookTypeDelete" class="ui-btn ui-corner-all ui-shadow">Delete Book Type</button>
+</div>
+<div><button id="pgEditBookTypeBack" class="ui-btn ui-corner-all ui-shadow">Cancel</button>
+</div>
+</form>
+</div>
+</div>
+
+</div>
+<div id="pgGrade" data-role="page">
+
+<header id="pgGradeheader" data-role="header" data-position="fixed">
+<h1>My Comic Books > Grades</h1>
+<a data-role="button" id="pgGradeBack" data-icon="arrow-l" class="ui-btn-left">Back</a>
+<a data-role="button" id="pgGradeNew" data-icon="plus" data-theme="b" class="ui-btn-right">New</a>
+</header>
+<div id="pgGradecontent" data-role="content">
+<ul data-role="listview" data-inset="true" id="pgGradeList" data-filter="true" data-filter-placeholder="Search Grades" data-filter-reveal="false">
+<li data-role="list-divider">Your Grades</li>
+<li id="noGrade">You have no grades</li>
+
+</ul>
+</div>
+
+</div>
+
+<div id="pgRptGrade" data-role="page">
+
+<header id="pgRptGradeheader" data-role="header" data-position="fixed">
+<h1>My Comic Books > Grades</h1>
+<a data-role="button" id="pgRptGradeBack" data-icon="arrow-l" class="ui-btn-left">Back</a>
+<a data-role="button" id="pgRptGradeNew" data-icon="plus" data-theme="b" class="ui-btn-right">New</a>
+</header>
+<div id="pgRptGradecontent" data-role="content">
+<table id="RptGrade" data-column-btn-text="Columns To Display" data-column-btn-theme="b" data-role="table" data-mode="columntoggle" data-column-popup-theme="a" class="ui-responsive table-stroke table-stripe ui-shadow ui-body-d">
+<caption>Grades Report</caption>
+<thead>
+<tr class="ui-bar-d">
+<th >Grade</th>
+<th data-priority="2">Description</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+<tfoot>
+<tr><td></td></tr>
+<tr><td colspan="2">Powered by JQM.Show - https://play.google.com/store/apps/details?id=com.b4a.JQMShow</td></tr></tfoot>
+</table>
+<div data-role="fieldcontain">
+<a download="Grade.xls" onclick="return ExcellentExport.excel(this, 'RptGrade', 'Grade');" id="pgRptGradeExport" data-corners="true" href="#" class="ui-btn ui-shadow">Export to Excel</a></div>
+</div>
+
+</div>
+
+<div id="pgAddGrade" data-role="page">
+
+<header id="pgAddGradeheader" data-role="header" data-position="fixed">
+<h1>My Comic Books > Add Grade</h1>
+</header>
+<div id="pgAddGradecontent" data-role="content">
+<div style="width:30%;float:left;">
+<ul data-role="listview" data-inset="true" id="pgAddGradeList" data-filter="true" data-filter-placeholder="Search Grades" data-filter-reveal="false">
+<li data-role="list-divider">Your Grades</li>
+<li id="noGrade">You have no grades</li>
+
+</ul>
+</div>
+<div style="width:65%;float:left;margin-left:35px;">
+<form action="#" method="post" id="pgAddGradeForm" name="pgAddGradeForm">
+<div data-role="fieldcontain">
+<label for="pgAddGradeGrade" id="lblpgAddGradeGrade">Grade<span style='color:red;'>*</span></label>
+<input required title="Enter grade here." type="text" name="pgAddGradeGrade" id="pgAddGradeGrade" placeholder="Enter grade here." autocomplete="off" data-clear-btn="true"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgAddGradeDescription" id="lblpgAddGradeDescription">Description<span style='color:red;'>*</span></label>
+<textarea name="pgAddGradeDescription" id="pgAddGradeDescription" placeholder="Enter description here." class="required"></textarea>
+</div>
+<div><button type="submit" id="pgAddGradeSave" class="ui-btn ui-corner-all ui-shadow ui-btn-b">Save Grade</button>
+</div>
+<div><button id="pgAddGradeDelete" class="ui-btn ui-corner-all ui-shadow">Delete Grade</button>
+</div>
+<div><button id="pgAddGradeBack" class="ui-btn ui-corner-all ui-shadow">Cancel</button>
+</div>
+</form>
+</div>
+</div>
+
+</div>
+
+<div data-url="Grade" id="pgEditGrade" data-role="page">
+
+<header id="pgEditGradeheader" data-role="header" data-position="fixed">
+<h1>My Comic Books > Edit Grade</h1>
+</header>
+<div id="pgEditGradecontent" data-role="content">
+<div style="width:30%;float:left;">
+<ul data-role="listview" data-inset="true" id="pgEditGradeList" data-filter="true" data-filter-placeholder="Search Grades" data-filter-reveal="false">
+<li data-role="list-divider">Your Grades</li>
+<li id="noGrade">You have no grades</li>
+
+</ul>
+</div>
+<div style="width:65%;float:left;margin-left:35px;">
+<form action="#" method="post" id="pgEditGradeForm" name="pgEditGradeForm">
+<div data-role="fieldcontain">
+<label for="pgEditGradeGrade" id="lblpgEditGradeGrade">Grade<span style='color:red;'>*</span></label>
+<input required readonly="readonly" data-clear-btn="true" autofocus="true" title="Enter grade here." type="text" name="pgEditGradeGrade" id="pgEditGradeGrade" placeholder="Enter grade here." autocomplete="off"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgEditGradeDescription" id="lblpgEditGradeDescription">Description<span style='color:red;'>*</span></label>
+<textarea name="pgEditGradeDescription" id="pgEditGradeDescription" placeholder="Enter description here." class="required"></textarea>
+</div>
+<div><button type="submit" id="pgEditGradeUpdate" class="ui-btn ui-corner-all ui-shadow ui-btn-b">Update Grade</button>
+</div>
+<div><button id="pgEditGradeDelete" class="ui-btn ui-corner-all ui-shadow">Delete Grade</button>
+</div>
+<div><button id="pgEditGradeBack" class="ui-btn ui-corner-all ui-shadow">Cancel</button>
+</div>
+</form>
+</div>
+</div>
+
+</div>
+<section data-transition="pop" id="msgbox" data-role="dialog">
+
+<header id="msgboxheader" data-role="header" data-position="fixed">
+<h1>Confirm</h1>
+</header>
+<div id="msgboxcontent" data-role="content">
+<div id="msgboxtitle">
+</div>
+<br><div id="msgboxprompt">
+<p>Are you sure you want to delete this record?</p>
+</div>
+<br><div style="text-align: center;" id="msgboxbuttons" class="ui-grid-a">
+<div class="ui-block-a">
+<a data-method="" data-id="" data-topage="" id="msgboxyes" data-role="button" data-icon="check">Yes</a>
+</div>
+<div class="ui-block-b">
+<a data-method="" data-id="" data-topage="" id="msgboxno" data-role="button" data-icon="delete" data-theme="b">No</a>
+</div>
+</div>
+</div>
+
+</section>
+<section data-transition="pop" id="alertbox" data-role="dialog">
+
+<header id="alertboxheader" data-role="header" data-position="fixed">
+<h1>Error</h1>
+</header>
+<div id="alertboxcontent" data-role="content">
+<div id="alertboxtitle">
+</div>
+<br><div id="alertboxprompt">
+<p>An error has been encountered!</p>
+</div>
+<br><div style="text-align: center;" id="alertboxbuttons" class="ui-grid-solo">
+<div class="ui-block-a">
+<a data-method="" data-id="" data-topage="" id="alertboxok" data-role="button" data-icon="check" data-theme="b">Ok</a>
+</div>
+</div>
+</div>
+
+</section>
+<script>$(function(){
+// define the application
+var MyComicBooks = {};
+var pictureSource;
+var destinationType;
+var isPhoneGapReady = false;
+(function(app){
+// variable definitions go here
+var ComicBookLi = '<li ><a href="#pgEditComicBook?Title=Z2"><h2>Z1</h2><p>DESCRIPTION</p><span class="ui-li-count">COUNTBUBBLE</span></a></li>';
+var ComicBookHdr = '<li data-role="list-divider">Your Comic Books</li>';
+var noComicBook = '<li id="noComicBook">You have no comic books</li>';
+
+// variable definitions go here
+var BookTypeLi = '<li ><a href="#pgEditBookType?TypeName=Z2">Z1</a></li>';
+var BookTypeHdr = '<li data-role="list-divider">Your Book Types</li>';
+var noBookType = '<li id="noBookType">You have no book types</li>';
+
+// variable definitions go here
+var GradeLi = '<li ><a href="#pgEditGrade?Grade=Z2">Z1</a></li>';
+var GradeHdr = '<li data-role="list-divider">Your Grades</li>';
+var noGrade = '<li id="noGrade">You have no grades</li>';
+
+
+app.init = function(){
+FastClick.attach(document.body);
+app.ComicBookBindings();
+
+app.BookTypeBindings();
+
+app.GradeBindings();
+
+app.BindDevice();
+$('#msgboxyes').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+var yesmethod = $('#msgboxyes').data('method');
+var yesid = $('#msgboxyes').data('id');
+app[yesmethod](yesid);
+});
+
+$('#msgboxno').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+var toPage = $('#msgboxno').data('topage');
+// show the page to display after a record is deleted
+$.mobile.changePage('#'+toPage, {transition: 'slide'});
+});
+
+$('#alertboxok').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+var toPage = $('#alertboxok').data('topage');
+// show the page to display after ok is clicked
+$.mobile.changePage('#'+toPage, {transition: 'slide'});
+});
+
+$(document).on('click', '#sbItems a', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+var href = $(this).attr('href');
+$.mobile.changePage(href, {transition: 'slide'});
+});
+
+};
+
+// define events to be fired during app execution.
+app.ComicBookBindings = function(){
+// code to run before showing the page that lists the records.
+//before records listing is shown, check for storage
+$(document).on('pagebeforechange', function(e, data){
+//get page to go to
+var toPage = data.toPage[0].id;
+switch (toPage) {
+case 'pgComicBook':
+// restart the storage check
+app.checkForComicBookStorage();
+break;
+case 'pgRptComicBook':
+app.ComicBookRpt();
+break;
+case 'pgEditComicBook':
+// clear the add page form fields
+pgEditComicBookClear();
+app.pgEditComicBookcheckForComicBookStorage();
+//load related select menus before the page shows
+app.pgEditComicBookLoadGrade();
+app.pgEditComicBookLoadBookType();
+break;
+case 'pgAddComicBook':
+// clear the add page form fields
+pgAddComicBookClear();
+app.pgAddComicBookcheckForComicBookStorage();
+//load related select menus before the page shows
+app.pgAddComicBookLoadGrade();
+app.pgAddComicBookLoadBookType();
+break;
+default:
+}
+});
+
+//***** Add Page *****
+// code to run when back button is clicked on the add record page.
+// Back click event from Add Page
+$('#pgAddComicBookBack').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+//which page are we coming from, if from sign in go back to it
+var pgFrom = $('#pgAddComicBook').data('from');
+switch (pgFrom) {
+case "pgSignIn":
+$.mobile.changePage('#pgSignIn', {transition: 'slide'});
+break;
+default:
+// go back to the records listing screen
+$.mobile.changePage('#pgMenu', {transition: 'slide'});
+}
+});
+// code to run when the Save button is clicked on Add page.
+// Save click event on Add page
+$('#pgAddComicBookSave').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+// save the Comic Book
+var ComicBookRec;
+//get form contents into an object
+ComicBookRec = pgAddComicBookGetRec();
+//save object to localstorage
+app.addComicBook(ComicBookRec);
+});
+// code to run when a get location button is clicked on the Add page.
+
+// delete button on Add Page
+$('#pgAddComicBookDelete').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+//read the record key from form control
+var Title = $('#pgAddComicBookTitle').val();
+//show a confirm message box
+Title = Title.replace(/-/g,' ');
+$('#msgboxheader h1').text('Confirm Delete');
+$('#msgboxtitle').text(Title);
+$('#msgboxprompt').text('Are you sure that you want to delete this comic book?');
+$('#msgboxyes').data('method', 'deleteComicBook');
+Title = Title.replace(/ /g,'-');
+$('#msgboxyes').data('id', Title);
+$('#msgboxyes').data('topage', 'pgAddComicBook');
+$('#msgboxno').data('topage', 'pgAddComicBook');
+$.mobile.changePage('#msgbox', {transition: 'pop'});
+});
+
+//listview item click eventt.
+$(document).on('click', '#pgAddComicBookList a', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+//get href of selected listview item and cleanse it
+var href = $(this)[0].href.match(/\?.*$/)[0];
+var Title = href.replace(/^\?Title=/,'');
+//read record from local storage and update screen.
+app.pgAddComicBookeditComicBook(Title);
+});
+
+//***** Add Page - End *****
+
+//***** Listing Page *****
+// code to run when a listview item is clicked.
+//listview item click eventt.
+$(document).on('click', '#pgComicBookList a', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+//get href of selected listview item and cleanse it
+var href = $(this)[0].href.match(/\?.*$/)[0];
+var Title = href.replace(/^\?Title=/,'');
+//change page to edit page.
+$.mobile.changePage('#pgEditComicBook', {transition: 'slide'});
+//read record from local storage and update screen.
+app.editComicBook(Title);
+});
+
+// code to run when back button of record listing is clicked.
+// bind the back button of the records listing
+$('#pgComicBookBack').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+// move to the defined previous page with the defined transition
+$.mobile.changePage('#pgMenu', {transition: 'slide'});
+});
+// code to run when New button on records listing is clicked.
+// New button click on records listing page
+$('#pgComicBookNew').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+//we are accessing a new record from records listing
+$('#pgAddComicBook').data('from', 'pgComicBook');
+// show the active and user type elements
+$('#pgAddComicBookheader h1').text('My Comic Books > Maintain Comic Books');
+$('#pgAddComicBookUserType').show();
+$('#pgAddComicBookActive').show();
+// move to the add page screen
+$.mobile.changePage('#pgAddComicBook', {transition: 'slide'});
+});
+//***** Listing Page - End *****
+
+//***** Edit Page *****
+// code to run when the back button of the Edit Page is clicked.
+// Back click event on Edit page
+$('#pgEditComicBookBack').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+// go back to the listing screen
+$.mobile.changePage('#pgComicBook', {transition: 'slide'});
+});
+// code to run when the Update button is clicked in the Edit Page.
+// Update click event on Edit Page
+$('#pgEditComicBookUpdate').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+// save the Comic Book
+var ComicBookRecNew;
+//get contents of Edit page controls
+ComicBookRecNew = pgEditComicBookGetRec();
+//save updated records to localstorage
+app.updateComicBook(ComicBookRecNew);
+});
+// code to run when the Delete button is clicked in the Edit Page.
+// delete button on Edit Page
+$('#pgEditComicBookDelete').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+//read the record key from form control
+var Title = $('#pgEditComicBookTitle').val();
+//show a confirm message box
+Title = Title.replace(/-/g,' ');
+$('#msgboxheader h1').text('Confirm Delete');
+$('#msgboxtitle').text(Title);
+$('#msgboxprompt').text('Are you sure that you want to delete this comic book?');
+$('#msgboxyes').data('method', 'deleteComicBook');
+Title = Title.replace(/ /g,'-');
+$('#msgboxyes').data('id', Title);
+$('#msgboxyes').data('topage', 'pgEditComicBook');
+$('#msgboxno').data('topage', 'pgEditComicBook');
+$.mobile.changePage('#msgbox', {transition: 'pop'});
+});
+
+//listview item click eventt.
+$(document).on('click', '#pgEditComicBookList a', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+//get href of selected listview item and cleanse it
+var href = $(this)[0].href.match(/\?.*$/)[0];
+var Title = href.replace(/^\?Title=/,'');
+//read record from local storage and update screen.
+app.pgEditComicBookeditComicBook(Title);
+});
+
+//***** Edit Page - End *****
+
+
+//***** Report Page *****
+
+//back button on Report page
+// Back click event on Report page
+$('#pgRptComicBookBack').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+// go back to the listing screen
+$.mobile.changePage('#pgReports', {transition: 'slide'});
+});
+//add new record from report page
+// New button click on records report page
+$('#pgRptComicBookNew').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+//we are accessing a new record from records report
+$('#pgAddComicBook').data('from', 'pgRptComicBook');
+// show the active and user type elements
+$('#pgAddComicBookheader h1').text('My Comic Books > Maintain Comic Books');
+// move to the add page screen
+$.mobile.changePage('#pgAddComicBook', {transition: 'slide'});
+});//***** Report Page - End *****
+
+
+//Our events are now fully defined.
+};
+// this defines methods/procedures accessed by our events.
+// get existing records from localstorage.
+//get all existing records from localstorage
+app.getComicBook = function(){
+// get Comic Book records
+var ComicBookObj = localStorage['mycomicbooks-comicbook'];
+if (!ComicBookObj){
+//if there are no existing records, create an empty object
+ComicBookObj = {};
+//save empty object to localstorage
+localStorage['mycomicbooks-comicbook'] = JSON.stringify(ComicBookObj);
+} else {
+//records exist, parse them into an array as they are stored as text
+ComicBookObj = JSON.parse(ComicBookObj);
+}
+return ComicBookObj;
+};
+
+//display records in table during runtime.
+app.ComicBookRpt = function(){
+//clear the table and leave the header
+$('#RptComicBook tbody tr').remove();
+// get Comic Book records.
+var ComicBookObj = app.getComicBook();
+// create an empty string to contain all rows of the table
+var newrows = '';
+// make sure your iterators are properly scoped
+var n;
+// loop over records and create a new row for each
+// and append the newrows with each table row.
+for (n in ComicBookObj){
+//get the record details
+var ComicBookRec = ComicBookObj[n];
+//create each row
+var eachrow = '<tr>';
+eachrow += '<td>' + ComicBookRec.Title + '</td>';
+eachrow += '<td>' + ComicBookRec.IssueNumber + '</td>';
+eachrow += '<td>' + ComicBookRec.Grade + '</td>';
+eachrow += '<td>' + ComicBookRec.BookType + '</td>';
+eachrow += '<td>' + ComicBookRec.PublicationDate + '</td>';
+eachrow += '<td>' + ComicBookRec.BookValue + '</td>';
+eachrow += '<td>' + ComicBookRec.Price + '</td>';
+eachrow += '<td>' + ComicBookRec.Signed + '</td>';
+eachrow += '<td>' + ComicBookRec.Bagged + '</td>';
+eachrow += '</tr>';
+//append each row to the newrows variable;
+newrows += eachrow;
+}
+// update the table
+$('#RptComicBook').append(newrows);
+// refresh the table with new details
+$('#RptComicBook').table('refresh');
+};
+
+// save the defined Add page object to local storage
+// add a new record to localstorage.
+app.addComicBook = function(ComicBookRec){
+// get Comic Book records.
+var ComicBookObj = app.getComicBook();
+// define a record object to store the current details
+var Title = ComicBookRec.Title;
+// cleanse the record key of spaces.
+Title = Title.replace(/ /g,'-');
+// update local storage object with new record.
+ComicBookObj[Title] = ComicBookRec;
+//sort the objects.
+var keys = Object.keys(ComicBookObj);
+keys.sort();
+var sortedObject = Object();
+var i;
+for (i in keys) {
+key = keys[i];
+sortedObject[key] = ComicBookObj[key];
+}
+ComicBookObj = sortedObject;
+// save all existing records to localstorage.
+localStorage['mycomicbooks-comicbook'] = JSON.stringify(ComicBookObj);
+toastr.success('Comic Book record saved.', 'My Comic Books');
+//find which page are we coming from, if from sign in go back to it
+var pgFrom = $('#pgAddComicBook').data('from');
+switch (pgFrom) {
+case "pgSignIn":
+$.mobile.changePage('#pgSignIn', {transition: 'slide'});
+break;
+default:
+// clear the edit page form fields
+pgAddComicBookClear();
+//stay in the same page to add more records
+app.pgAddComicBookcheckForComicBookStorage();}
+};
+
+// save the defined Edit page object to local storage
+
+//update an existing record and save to local storage
+app.updateComicBook = function(ComicBookRecNew){
+// get Comic Book records.
+var ComicBookObj = app.getComicBook();
+// lookup specific Comic Book
+var Title = ComicBookRecNew.Title;
+//cleanse the key of spaces
+Title = Title.replace(/ /g,'-');
+//get the record from localstorage
+var ComicBookRec = ComicBookObj[Title];
+// assign new values to read record
+ComicBookRec.Title = ComicBookRecNew.Title;
+ComicBookRec.IssueNumber = ComicBookRecNew.IssueNumber;
+ComicBookRec.Grade = ComicBookRecNew.Grade;
+ComicBookRec.BookType = ComicBookRecNew.BookType;
+ComicBookRec.PublicationDate = ComicBookRecNew.PublicationDate;
+ComicBookRec.BookValue = ComicBookRecNew.BookValue;
+ComicBookRec.Price = ComicBookRecNew.Price;
+ComicBookRec.Signed = ComicBookRecNew.Signed;
+ComicBookRec.Bagged = ComicBookRecNew.Bagged;
+//update local storage object
+ComicBookObj[Title] = ComicBookRec;
+//sort the objects
+var keys = Object.keys(ComicBookObj);
+keys.sort();
+var sortedObject = Object();
+var i;
+for (i in keys) {
+key = keys[i];
+sortedObject[key] = ComicBookObj[key];
+}
+ComicBookObj = sortedObject;
+//save all existing records to localstorage
+localStorage['mycomicbooks-comicbook'] = JSON.stringify(ComicBookObj);
+toastr.success('Comic Book record updated.', 'My Comic Books');
+// clear the edit page form fields
+pgEditComicBookClear();
+app.pgEditComicBookcheckForComicBookStorage();};
+
+// delete record from localstorage
+//delete a record from local storage using record key
+app.deleteComicBook = function(Title){
+// get the Comic Book records from localStorage
+var ComicBookObj = app.getComicBook();
+// delete selected record key from Comic Book
+delete ComicBookObj[Title];
+//sort the records
+var keys = Object.keys(ComicBookObj);
+keys.sort();
+var sortedObject = Object();
+var i;
+for (i in keys) {
+key = keys[i];
+sortedObject[key] = ComicBookObj[key];
+}
+ComicBookObj = sortedObject;
+// write all records back to localStorage
+localStorage['mycomicbooks-comicbook'] = JSON.stringify(ComicBookObj);
+toastr.success('Comic Book record deleted.', 'My Comic Books');
+//get the page to go to
+var toPage = $('#msgboxyes').data('topage');
+// show the page to display after a record is deleted
+$.mobile.changePage('#'+toPage, {transition: 'slide'});
+};
+
+// display existing records in listview of Records listing.
+//***** List Page *****
+//display records in listview during runtime.
+app.displayComicBook = function(){
+// get Comic Book records.
+var ComicBookObj = app.getComicBook();
+// create an empty string to contain html
+var html = '';
+// make sure your iterators are properly scoped
+var n;
+// loop over records and create a new list item for each
+//append the html to store the listitems.
+for (n in ComicBookObj){
+//get the record details
+var ComicBookRec = ComicBookObj[n];
+//define a new line from what we have defined
+var nItem = ComicBookLi;
+//update the href to the key
+nItem = nItem.replace(/Z2/g,n);
+//update the title to display, this might be multi fields
+var nTitle = '';
+nTitle += ComicBookRec.Title;
+nTitle += ', ';
+nTitle += ComicBookRec.IssueNumber;
+//replace the title;
+nItem = nItem.replace(/Z1/g,nTitle);
+//there is a count bubble, update list item
+var nCountBubble = '';
+nCountBubble += ComicBookRec.Price;
+//replace the countbubble
+nItem = nItem.replace(/COUNTBUBBLE/g,nCountBubble);
+//there is a description, update the list item
+var nDescription = '';
+nDescription += ComicBookRec.Grade;
+nDescription += ', ';
+nDescription += ComicBookRec.BookType;
+nDescription += ', ';
+nDescription += ComicBookRec.PublicationDate;
+//replace the description;
+nItem = nItem.replace(/DESCRIPTION/g,nDescription);
+html += nItem;
+}
+//update the listview with the newly defined html structure.
+$('#pgComicBookList').html(ComicBookHdr + html).listview('refresh');
+};
+
+// check localstorage for Records. This initializes LocalStorage if there are no records
+//display records if they exist or tell user no records exist.
+app.checkForComicBookStorage = function(){
+//get records from localstorage.
+var ComicBookObj = app.getComicBook();
+// are there existing Comic Book records?
+if (!$.isEmptyObject(ComicBookObj)) {
+// yes there are. pass them off to be displayed
+app.displayComicBook();
+} else {
+// nope, just show the placeholder
+$('#pgComicBookList').html(ComicBookHdr + noComicBook).listview('refresh');
+}
+};
+
+// ***** Edit Page *****
+// get the contents of the edit screen controls and store them in an object.
+//get the record to be saved and put it in a record array
+//read contents of each form input
+function pgEditComicBookGetRec(){
+//define the new record
+var ComicBookRec
+ComicBookRec = {};
+ComicBookRec.Title = $('#pgEditComicBookTitle').val();
+ComicBookRec.IssueNumber = $('#pgEditComicBookIssueNumber').val();
+ComicBookRec.Grade = $('#pgEditComicBookGrade').val();
+ComicBookRec.BookType = $('#pgEditComicBookBookType').val();
+ComicBookRec.PublicationDate = $('#pgEditComicBookPublicationDate').val();
+ComicBookRec.BookValue = $('#pgEditComicBookBookValue').val();
+ComicBookRec.Price = $('#pgEditComicBookPrice').val();
+ComicBookRec.Signed = $('#pgEditComicBookSigned').prop('checked');
+ComicBookRec.Bagged = $('#pgEditComicBookBagged').prop('checked');
+return ComicBookRec;
+}
+
+// display content of selected record on Edit Page
+//read record from local storage and display it on edit page.
+app.editComicBook = function(Title){
+// get Comic Book records.
+var ComicBookObj = app.getComicBook();
+// lookup specific Comic Book
+Title = Title.replace(/ /g,'-');
+var ComicBookRec = ComicBookObj[Title];
+$('#pgEditComicBookheader h1').text('My Comic Books > Maintain Comic Books');
+//update each control in the Edit page
+$('#pgEditComicBookTitle').val(ComicBookRec.Title);
+$('#pgEditComicBookIssueNumber').val(ComicBookRec.IssueNumber);
+$('#pgEditComicBookGrade').val(ComicBookRec.Grade);
+$('#pgEditComicBookGrade').selectmenu('refresh');
+$('#pgEditComicBookBookType').val(ComicBookRec.BookType);
+$('#pgEditComicBookBookType').selectmenu('refresh');
+$('#pgEditComicBookPublicationDate').val(ComicBookRec.PublicationDate);
+$('#pgEditComicBookBookValue').val(ComicBookRec.BookValue);
+$('#pgEditComicBookPrice').val(ComicBookRec.Price);
+$('#pgEditComicBookSigned').prop('checked', ComicBookRec.Signed);
+$('#pgEditComicBookSigned').checkboxradio('refresh');
+$('#pgEditComicBookBagged').prop('checked', ComicBookRec.Bagged);
+$('#pgEditComicBookBagged').checkboxradio('refresh');
+};
+
+// clear the contents of the Edit Page controls
+//clear the form controls for data entry
+function pgEditComicBookClear(){
+$('#pgEditComicBookTitle').val('');
+$('#pgEditComicBookIssueNumber').val('');
+$('#pgEditComicBookGrade').val('');
+$('#pgEditComicBookGrade').selectmenu('refresh');
+$('#pgEditComicBookBookType').val('');
+$('#pgEditComicBookBookType').selectmenu('refresh');
+$('#pgEditComicBookPublicationDate').val('');
+$('#pgEditComicBookBookValue').val('');
+$('#pgEditComicBookPrice').val('');
+$('#pgEditComicBookSigned').prop('checked', false).checkboxradio('refresh');
+$('#pgEditComicBookBagged').prop('checked', false).checkboxradio('refresh');
+}
+
+//display records in listview during runtime.
+app.pgEditComicBookdisplayComicBook = function(){
+// get Comic Book records.
+var ComicBookObj = app.getComicBook();
+// create an empty string to contain html
+var html = '';
+// make sure your iterators are properly scoped
+var n;
+// loop over records and create a new list item for each
+//append the html to store the listitems.
+for (n in ComicBookObj){
+//get the record details
+var ComicBookRec = ComicBookObj[n];
+//define a new line from what we have defined
+var nItem = ComicBookLi;
+//update the href to the key
+nItem = nItem.replace(/Z2/g,n);
+//update the title to display, this might be multi fields
+var nTitle = '';
+nTitle += ComicBookRec.Title;
+nTitle += ', ';
+nTitle += ComicBookRec.IssueNumber;
+//replace the title;
+nItem = nItem.replace(/Z1/g,nTitle);
+//there is a count bubble, update list item
+var nCountBubble = '';
+nCountBubble += ComicBookRec.Price;
+//replace the countbubble
+nItem = nItem.replace(/COUNTBUBBLE/g,nCountBubble);
+//there is a description, update the list item
+var nDescription = '';
+nDescription += ComicBookRec.Grade;
+nDescription += ', ';
+nDescription += ComicBookRec.BookType;
+nDescription += ', ';
+nDescription += ComicBookRec.PublicationDate;
+//replace the description;
+nItem = nItem.replace(/DESCRIPTION/g,nDescription);
+html += nItem;
+}
+//update the listview with the newly defined html structure.
+$('#pgEditComicBookList').html(ComicBookHdr + html).listview('refresh');
+};
+
+//display records if they exist or tell user no records exist.
+app.pgEditComicBookcheckForComicBookStorage = function(){
+//get records from localstorage.
+var ComicBookObj = app.getComicBook();
+// are there existing Comic Book records?
+if (!$.isEmptyObject(ComicBookObj)) {
+// yes there are. pass them off to be displayed
+app.pgEditComicBookdisplayComicBook();
+} else {
+// nope, just show the placeholder
+$('#pgEditComicBookList').html(ComicBookHdr + noComicBook).listview('refresh');
+}
+};
+
+//read record from local storage and display it on edit page.
+app.pgEditComicBookeditComicBook = function(Title){
+// get Comic Book records.
+var ComicBookObj = app.getComicBook();
+// lookup specific Comic Book
+Title = Title.replace(/ /g,'-');
+var ComicBookRec = ComicBookObj[Title];
+$('#pgEditComicBookheader h1').text('My Comic Books > Maintain Comic Books');
+//update each control in the Edit page
+$('#pgEditComicBookTitle').val(ComicBookRec.Title);
+$('#pgEditComicBookIssueNumber').val(ComicBookRec.IssueNumber);
+$('#pgEditComicBookGrade').val(ComicBookRec.Grade);
+$('#pgEditComicBookGrade').selectmenu('refresh');
+$('#pgEditComicBookBookType').val(ComicBookRec.BookType);
+$('#pgEditComicBookBookType').selectmenu('refresh');
+$('#pgEditComicBookPublicationDate').val(ComicBookRec.PublicationDate);
+$('#pgEditComicBookBookValue').val(ComicBookRec.BookValue);
+$('#pgEditComicBookPrice').val(ComicBookRec.Price);
+$('#pgEditComicBookSigned').prop('checked', ComicBookRec.Signed);
+$('#pgEditComicBookSigned').checkboxradio('refresh');
+$('#pgEditComicBookBagged').prop('checked', ComicBookRec.Bagged);
+$('#pgEditComicBookBagged').checkboxradio('refresh');
+};
+
+// ***** Add Page *****
+//display records in listview during runtime.
+app.pgAddComicBookdisplayComicBook = function(){
+// get Comic Book records.
+var ComicBookObj = app.getComicBook();
+// create an empty string to contain html
+var html = '';
+// make sure your iterators are properly scoped
+var n;
+// loop over records and create a new list item for each
+//append the html to store the listitems.
+for (n in ComicBookObj){
+//get the record details
+var ComicBookRec = ComicBookObj[n];
+//define a new line from what we have defined
+var nItem = ComicBookLi;
+//update the href to the key
+nItem = nItem.replace(/Z2/g,n);
+//update the title to display, this might be multi fields
+var nTitle = '';
+nTitle += ComicBookRec.Title;
+nTitle += ', ';
+nTitle += ComicBookRec.IssueNumber;
+//replace the title;
+nItem = nItem.replace(/Z1/g,nTitle);
+//there is a count bubble, update list item
+var nCountBubble = '';
+nCountBubble += ComicBookRec.Price;
+//replace the countbubble
+nItem = nItem.replace(/COUNTBUBBLE/g,nCountBubble);
+//there is a description, update the list item
+var nDescription = '';
+nDescription += ComicBookRec.Grade;
+nDescription += ', ';
+nDescription += ComicBookRec.BookType;
+nDescription += ', ';
+nDescription += ComicBookRec.PublicationDate;
+//replace the description;
+nItem = nItem.replace(/DESCRIPTION/g,nDescription);
+html += nItem;
+}
+//update the listview with the newly defined html structure.
+$('#pgAddComicBookList').html(ComicBookHdr + html).listview('refresh');
+};
+
+//display records if they exist or tell user no records exist.
+app.pgAddComicBookcheckForComicBookStorage = function(){
+//get records from localstorage.
+var ComicBookObj = app.getComicBook();
+// are there existing Comic Book records?
+if (!$.isEmptyObject(ComicBookObj)) {
+// yes there are. pass them off to be displayed
+app.pgAddComicBookdisplayComicBook();
+} else {
+// nope, just show the placeholder
+$('#pgAddComicBookList').html(ComicBookHdr + noComicBook).listview('refresh');
+}
+};
+
+//read record from local storage and display it on edit page.
+app.pgAddComicBookeditComicBook = function(Title){
+// get Comic Book records.
+var ComicBookObj = app.getComicBook();
+// lookup specific Comic Book
+Title = Title.replace(/ /g,'-');
+var ComicBookRec = ComicBookObj[Title];
+$('#pgAddComicBookheader h1').text('My Comic Books > Maintain Comic Books');
+//update each control in the Edit page
+$('#pgAddComicBookTitle').val(ComicBookRec.Title);
+$('#pgAddComicBookIssueNumber').val(ComicBookRec.IssueNumber);
+$('#pgAddComicBookGrade').val(ComicBookRec.Grade);
+$('#pgAddComicBookGrade').selectmenu('refresh');
+$('#pgAddComicBookBookType').val(ComicBookRec.BookType);
+$('#pgAddComicBookBookType').selectmenu('refresh');
+$('#pgAddComicBookPublicationDate').val(ComicBookRec.PublicationDate);
+$('#pgAddComicBookBookValue').val(ComicBookRec.BookValue);
+$('#pgAddComicBookPrice').val(ComicBookRec.Price);
+$('#pgAddComicBookSigned').prop('checked', ComicBookRec.Signed);
+$('#pgAddComicBookSigned').checkboxradio('refresh');
+$('#pgAddComicBookBagged').prop('checked', ComicBookRec.Bagged);
+$('#pgAddComicBookBagged').checkboxradio('refresh');
+};
+
+// get the contents of the add screen controls and store them in an object.
+//get the record to be saved and put it in a record array
+//read contents of each form input
+function pgAddComicBookGetRec(){
+//define the new record
+var ComicBookRec
+ComicBookRec = {};
+ComicBookRec.Title = $('#pgAddComicBookTitle').val();
+ComicBookRec.IssueNumber = $('#pgAddComicBookIssueNumber').val();
+ComicBookRec.Grade = $('#pgAddComicBookGrade').val();
+ComicBookRec.BookType = $('#pgAddComicBookBookType').val();
+ComicBookRec.PublicationDate = $('#pgAddComicBookPublicationDate').val();
+ComicBookRec.BookValue = $('#pgAddComicBookBookValue').val();
+ComicBookRec.Price = $('#pgAddComicBookPrice').val();
+ComicBookRec.Signed = $('#pgAddComicBookSigned').prop('checked');
+ComicBookRec.Bagged = $('#pgAddComicBookBagged').prop('checked');
+return ComicBookRec;
+}
+
+// clear the contents of the Add page controls
+//clear the form controls for data entry
+function pgAddComicBookClear(){
+$('#pgAddComicBookTitle').val('');
+$('#pgAddComicBookIssueNumber').val('');
+$('#pgAddComicBookGrade').val('');
+$('#pgAddComicBookGrade').selectmenu('refresh');
+$('#pgAddComicBookBookType').val('');
+$('#pgAddComicBookBookType').selectmenu('refresh');
+$('#pgAddComicBookPublicationDate').val('');
+$('#pgAddComicBookBookValue').val('');
+$('#pgAddComicBookPrice').val('');
+$('#pgAddComicBookSigned').prop('checked', false).checkboxradio('refresh');
+$('#pgAddComicBookBagged').prop('checked', false).checkboxradio('refresh');
+}
+
+//get all existing Grade-Grade
+app.getGradeGrade = function(){
+// get Comic Book records
+var ComicBookObj = app.getGrade();
+// loop through each record and get the fields we want
+// make sure your iterators are properly scoped
+var n;
+var dsFields = [];
+for (n in ComicBookObj){
+//get the record details
+var ComicBookRec = ComicBookObj[n];
+var dsField = ComicBookRec.Grade;
+dsFields.push(dsField);
+}
+return dsFields;
+};
+
+//get all existing BookType-TypeName
+app.getBookTypeTypeName = function(){
+// get Comic Book records
+var ComicBookObj = app.getBookType();
+// loop through each record and get the fields we want
+// make sure your iterators are properly scoped
+var n;
+var dsFields = [];
+for (n in ComicBookObj){
+//get the record details
+var ComicBookRec = ComicBookObj[n];
+var dsField = ComicBookRec.TypeName;
+dsFields.push(dsField);
+}
+return dsFields;
+};
+
+
+//load the field names for data sources to control 
+app.pgAddComicBookLoadGrade = function(){
+//read the data source data field combination array
+var ComicBookObj = app.getGradeGrade();
+var dsdf;
+//clear the select menu
+$('#pgAddComicBookGrade').empty();
+//ensure its refreshed
+$('#pgAddComicBookGrade').selectmenu('refresh');
+//loop through each item and load it.
+var options = [];
+options.push('<option value="null" data-placeholder="true">Select Grade</option>');
+for (dsdf in ComicBookObj){
+var Grade = ComicBookObj[dsdf];
+options.push("<option value='" + Grade + "'>" + Grade + "</option>");
+}
+$('#pgAddComicBookGrade').append(options.join("")).selectmenu();
+//refresh the select menu, just in case
+$('#pgAddComicBookGrade').selectmenu('refresh');
+};
+
+//load the field names for data sources to control 
+app.pgAddComicBookLoadBookType = function(){
+//read the data source data field combination array
+var ComicBookObj = app.getBookTypeTypeName();
+var dsdf;
+//clear the select menu
+$('#pgAddComicBookBookType').empty();
+//ensure its refreshed
+$('#pgAddComicBookBookType').selectmenu('refresh');
+//loop through each item and load it.
+var options = [];
+options.push('<option value="null" data-placeholder="true">Select BookType</option>');
+for (dsdf in ComicBookObj){
+var BookType = ComicBookObj[dsdf];
+options.push("<option value='" + BookType + "'>" + BookType + "</option>");
+}
+$('#pgAddComicBookBookType').append(options.join("")).selectmenu();
+//refresh the select menu, just in case
+$('#pgAddComicBookBookType').selectmenu('refresh');
+};
+
+
+//load the field names for data sources to control 
+app.pgEditComicBookLoadGrade = function(){
+//read the data source data field combination array
+var ComicBookObj = app.getGradeGrade();
+var dsdf;
+//clear the select menu
+$('#pgEditComicBookGrade').empty();
+//ensure its refreshed
+$('#pgEditComicBookGrade').selectmenu('refresh');
+//loop through each item and load it.
+var options = [];
+options.push('<option value="null" data-placeholder="true">Select Grade</option>');
+for (dsdf in ComicBookObj){
+var Grade = ComicBookObj[dsdf];
+options.push("<option value='" + Grade + "'>" + Grade + "</option>");
+}
+$('#pgEditComicBookGrade').append(options.join("")).selectmenu();
+//refresh the select menu, just in case
+$('#pgEditComicBookGrade').selectmenu('refresh');
+};
+
+//load the field names for data sources to control 
+app.pgEditComicBookLoadBookType = function(){
+//read the data source data field combination array
+var ComicBookObj = app.getBookTypeTypeName();
+var dsdf;
+//clear the select menu
+$('#pgEditComicBookBookType').empty();
+//ensure its refreshed
+$('#pgEditComicBookBookType').selectmenu('refresh');
+//loop through each item and load it.
+var options = [];
+options.push('<option value="null" data-placeholder="true">Select BookType</option>');
+for (dsdf in ComicBookObj){
+var BookType = ComicBookObj[dsdf];
+options.push("<option value='" + BookType + "'>" + BookType + "</option>");
+}
+$('#pgEditComicBookBookType').append(options.join("")).selectmenu();
+//refresh the select menu, just in case
+$('#pgEditComicBookBookType').selectmenu('refresh');
+};
+
+
+
+// define events to be fired during app execution.
+app.BookTypeBindings = function(){
+// code to run before showing the page that lists the records.
+//before records listing is shown, check for storage
+$(document).on('pagebeforechange', function(e, data){
+//get page to go to
+var toPage = data.toPage[0].id;
+switch (toPage) {
+case 'pgBookType':
+// restart the storage check
+app.checkForBookTypeStorage();
+break;
+case 'pgRptBookType':
+app.BookTypeRpt();
+break;
+case 'pgEditBookType':
+// clear the add page form fields
+pgEditBookTypeClear();
+app.pgEditBookTypecheckForBookTypeStorage();
+//load related select menus before the page shows
+break;
+case 'pgAddBookType':
+// clear the add page form fields
+pgAddBookTypeClear();
+app.pgAddBookTypecheckForBookTypeStorage();
+//load related select menus before the page shows
+break;
+default:
+}
+});
+
+//***** Add Page *****
+// code to run when back button is clicked on the add record page.
+// Back click event from Add Page
+$('#pgAddBookTypeBack').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+//which page are we coming from, if from sign in go back to it
+var pgFrom = $('#pgAddBookType').data('from');
+switch (pgFrom) {
+case "pgSignIn":
+$.mobile.changePage('#pgSignIn', {transition: 'slide'});
+break;
+default:
+// go back to the records listing screen
+$.mobile.changePage('#pgMenu', {transition: 'slide'});
+}
+});
+// code to run when the Save button is clicked on Add page.
+// Save click event on Add page
+$('#pgAddBookTypeSave').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+// save the Book Type
+var BookTypeRec;
+//get form contents into an object
+BookTypeRec = pgAddBookTypeGetRec();
+//save object to localstorage
+app.addBookType(BookTypeRec);
+});
+// code to run when a get location button is clicked on the Add page.
+
+// delete button on Add Page
+$('#pgAddBookTypeDelete').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+//read the record key from form control
+var TypeName = $('#pgAddBookTypeTypeName').val();
+//show a confirm message box
+TypeName = TypeName.replace(/-/g,' ');
+$('#msgboxheader h1').text('Confirm Delete');
+$('#msgboxtitle').text(TypeName);
+$('#msgboxprompt').text('Are you sure that you want to delete this book type?');
+$('#msgboxyes').data('method', 'deleteBookType');
+TypeName = TypeName.replace(/ /g,'-');
+$('#msgboxyes').data('id', TypeName);
+$('#msgboxyes').data('topage', 'pgAddBookType');
+$('#msgboxno').data('topage', 'pgAddBookType');
+$.mobile.changePage('#msgbox', {transition: 'pop'});
+});
+
+//listview item click eventt.
+$(document).on('click', '#pgAddBookTypeList a', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+//get href of selected listview item and cleanse it
+var href = $(this)[0].href.match(/\?.*$/)[0];
+var TypeName = href.replace(/^\?TypeName=/,'');
+//read record from local storage and update screen.
+app.pgAddBookTypeeditBookType(TypeName);
+});
+
+//***** Add Page - End *****
+
+//***** Listing Page *****
+// code to run when a listview item is clicked.
+//listview item click eventt.
+$(document).on('click', '#pgBookTypeList a', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+//get href of selected listview item and cleanse it
+var href = $(this)[0].href.match(/\?.*$/)[0];
+var TypeName = href.replace(/^\?TypeName=/,'');
+//change page to edit page.
+$.mobile.changePage('#pgEditBookType', {transition: 'slide'});
+//read record from local storage and update screen.
+app.editBookType(TypeName);
+});
+
+// code to run when back button of record listing is clicked.
+// bind the back button of the records listing
+$('#pgBookTypeBack').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+// move to the defined previous page with the defined transition
+$.mobile.changePage('#pgMenu', {transition: 'slide'});
+});
+// code to run when New button on records listing is clicked.
+// New button click on records listing page
+$('#pgBookTypeNew').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+//we are accessing a new record from records listing
+$('#pgAddBookType').data('from', 'pgBookType');
+// show the active and user type elements
+$('#pgAddBookTypeheader h1').text('My Comic Books > Maintain Book Types');
+$('#pgAddBookTypeUserType').show();
+$('#pgAddBookTypeActive').show();
+// move to the add page screen
+$.mobile.changePage('#pgAddBookType', {transition: 'slide'});
+});
+//***** Listing Page - End *****
+
+//***** Edit Page *****
+// code to run when the back button of the Edit Page is clicked.
+// Back click event on Edit page
+$('#pgEditBookTypeBack').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+// go back to the listing screen
+$.mobile.changePage('#pgBookType', {transition: 'slide'});
+});
+// code to run when the Update button is clicked in the Edit Page.
+// Update click event on Edit Page
+$('#pgEditBookTypeUpdate').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+// save the Book Type
+var BookTypeRecNew;
+//get contents of Edit page controls
+BookTypeRecNew = pgEditBookTypeGetRec();
+//save updated records to localstorage
+app.updateBookType(BookTypeRecNew);
+});
+// code to run when the Delete button is clicked in the Edit Page.
+// delete button on Edit Page
+$('#pgEditBookTypeDelete').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+//read the record key from form control
+var TypeName = $('#pgEditBookTypeTypeName').val();
+//show a confirm message box
+TypeName = TypeName.replace(/-/g,' ');
+$('#msgboxheader h1').text('Confirm Delete');
+$('#msgboxtitle').text(TypeName);
+$('#msgboxprompt').text('Are you sure that you want to delete this book type?');
+$('#msgboxyes').data('method', 'deleteBookType');
+TypeName = TypeName.replace(/ /g,'-');
+$('#msgboxyes').data('id', TypeName);
+$('#msgboxyes').data('topage', 'pgEditBookType');
+$('#msgboxno').data('topage', 'pgEditBookType');
+$.mobile.changePage('#msgbox', {transition: 'pop'});
+});
+
+//listview item click eventt.
+$(document).on('click', '#pgEditBookTypeList a', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+//get href of selected listview item and cleanse it
+var href = $(this)[0].href.match(/\?.*$/)[0];
+var TypeName = href.replace(/^\?TypeName=/,'');
+//read record from local storage and update screen.
+app.pgEditBookTypeeditBookType(TypeName);
+});
+
+//***** Edit Page - End *****
+
+
+//***** Report Page *****
+
+//back button on Report page
+// Back click event on Report page
+$('#pgRptBookTypeBack').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+// go back to the listing screen
+$.mobile.changePage('#pgReports', {transition: 'slide'});
+});
+//add new record from report page
+// New button click on records report page
+$('#pgRptBookTypeNew').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+//we are accessing a new record from records report
+$('#pgAddBookType').data('from', 'pgRptBookType');
+// show the active and user type elements
+$('#pgAddBookTypeheader h1').text('My Comic Books > Maintain Book Types');
+// move to the add page screen
+$.mobile.changePage('#pgAddBookType', {transition: 'slide'});
+});//***** Report Page - End *****
+
+
+//Our events are now fully defined.
+};
+// this defines methods/procedures accessed by our events.
+// get existing records from localstorage.
+//get all existing records from localstorage
+app.getBookType = function(){
+// get Book Type records
+var BookTypeObj = localStorage['mycomicbooks-booktype'];
+if (!BookTypeObj){
+//if there are no existing records, create an empty object
+BookTypeObj = {};
+//save empty object to localstorage
+localStorage['mycomicbooks-booktype'] = JSON.stringify(BookTypeObj);
+} else {
+//records exist, parse them into an array as they are stored as text
+BookTypeObj = JSON.parse(BookTypeObj);
+}
+return BookTypeObj;
+};
+
+//display records in table during runtime.
+app.BookTypeRpt = function(){
+//clear the table and leave the header
+$('#RptBookType tbody tr').remove();
+// get Book Type records.
+var BookTypeObj = app.getBookType();
+// create an empty string to contain all rows of the table
+var newrows = '';
+// make sure your iterators are properly scoped
+var n;
+// loop over records and create a new row for each
+// and append the newrows with each table row.
+for (n in BookTypeObj){
+//get the record details
+var BookTypeRec = BookTypeObj[n];
+//create each row
+var eachrow = '<tr>';
+eachrow += '<td>' + BookTypeRec.TypeName + '</td>';
+eachrow += '<td>' + BookTypeRec.Description + '</td>';
+eachrow += '</tr>';
+//append each row to the newrows variable;
+newrows += eachrow;
+}
+// update the table
+$('#RptBookType').append(newrows);
+// refresh the table with new details
+$('#RptBookType').table('refresh');
+};
+
+// save the defined Add page object to local storage
+// add a new record to localstorage.
+app.addBookType = function(BookTypeRec){
+// get Book Type records.
+var BookTypeObj = app.getBookType();
+// define a record object to store the current details
+var TypeName = BookTypeRec.TypeName;
+// cleanse the record key of spaces.
+TypeName = TypeName.replace(/ /g,'-');
+// update local storage object with new record.
+BookTypeObj[TypeName] = BookTypeRec;
+//sort the objects.
+var keys = Object.keys(BookTypeObj);
+keys.sort();
+var sortedObject = Object();
+var i;
+for (i in keys) {
+key = keys[i];
+sortedObject[key] = BookTypeObj[key];
+}
+BookTypeObj = sortedObject;
+// save all existing records to localstorage.
+localStorage['mycomicbooks-booktype'] = JSON.stringify(BookTypeObj);
+toastr.success('Book Type record saved.', 'My Comic Books');
+//find which page are we coming from, if from sign in go back to it
+var pgFrom = $('#pgAddBookType').data('from');
+switch (pgFrom) {
+case "pgSignIn":
+$.mobile.changePage('#pgSignIn', {transition: 'slide'});
+break;
+default:
+// clear the edit page form fields
+pgAddBookTypeClear();
+//stay in the same page to add more records
+app.pgAddBookTypecheckForBookTypeStorage();}
+};
+
+// save the defined Edit page object to local storage
+
+//update an existing record and save to local storage
+app.updateBookType = function(BookTypeRecNew){
+// get Book Type records.
+var BookTypeObj = app.getBookType();
+// lookup specific Book Type
+var TypeName = BookTypeRecNew.TypeName;
+//cleanse the key of spaces
+TypeName = TypeName.replace(/ /g,'-');
+//get the record from localstorage
+var BookTypeRec = BookTypeObj[TypeName];
+// assign new values to read record
+BookTypeRec.TypeName = BookTypeRecNew.TypeName;
+BookTypeRec.Description = BookTypeRecNew.Description;
+//update local storage object
+BookTypeObj[TypeName] = BookTypeRec;
+//sort the objects
+var keys = Object.keys(BookTypeObj);
+keys.sort();
+var sortedObject = Object();
+var i;
+for (i in keys) {
+key = keys[i];
+sortedObject[key] = BookTypeObj[key];
+}
+BookTypeObj = sortedObject;
+//save all existing records to localstorage
+localStorage['mycomicbooks-booktype'] = JSON.stringify(BookTypeObj);
+toastr.success('Book Type record updated.', 'My Comic Books');
+// clear the edit page form fields
+pgEditBookTypeClear();
+app.pgEditBookTypecheckForBookTypeStorage();};
+
+// delete record from localstorage
+//delete a record from local storage using record key
+app.deleteBookType = function(TypeName){
+// get the Book Type records from localStorage
+var BookTypeObj = app.getBookType();
+// delete selected record key from Book Type
+delete BookTypeObj[TypeName];
+//sort the records
+var keys = Object.keys(BookTypeObj);
+keys.sort();
+var sortedObject = Object();
+var i;
+for (i in keys) {
+key = keys[i];
+sortedObject[key] = BookTypeObj[key];
+}
+BookTypeObj = sortedObject;
+// write all records back to localStorage
+localStorage['mycomicbooks-booktype'] = JSON.stringify(BookTypeObj);
+toastr.success('Book Type record deleted.', 'My Comic Books');
+//get the page to go to
+var toPage = $('#msgboxyes').data('topage');
+// show the page to display after a record is deleted
+$.mobile.changePage('#'+toPage, {transition: 'slide'});
+};
+
+// display existing records in listview of Records listing.
+//***** List Page *****
+//display records in listview during runtime.
+app.displayBookType = function(){
+// get Book Type records.
+var BookTypeObj = app.getBookType();
+// create an empty string to contain html
+var html = '';
+// make sure your iterators are properly scoped
+var n;
+// loop over records and create a new list item for each
+//append the html to store the listitems.
+for (n in BookTypeObj){
+//get the record details
+var BookTypeRec = BookTypeObj[n];
+//define a new line from what we have defined
+var nItem = BookTypeLi;
+//update the href to the key
+nItem = nItem.replace(/Z2/g,n);
+//update the title to display, this might be multi fields
+var nTitle = '';
+//assign cleaned title
+nTitle = n.replace(/-/g,' ');
+//replace the title;
+nItem = nItem.replace(/Z1/g,nTitle);
+html += nItem;
+}
+//update the listview with the newly defined html structure.
+$('#pgBookTypeList').html(BookTypeHdr + html).listview('refresh');
+};
+
+// check localstorage for Records. This initializes LocalStorage if there are no records
+//display records if they exist or tell user no records exist.
+app.checkForBookTypeStorage = function(){
+//get records from localstorage.
+var BookTypeObj = app.getBookType();
+// are there existing Book Type records?
+if (!$.isEmptyObject(BookTypeObj)) {
+// yes there are. pass them off to be displayed
+app.displayBookType();
+} else {
+// nope, just show the placeholder
+$('#pgBookTypeList').html(BookTypeHdr + noBookType).listview('refresh');
+}
+};
+
+// ***** Edit Page *****
+// get the contents of the edit screen controls and store them in an object.
+//get the record to be saved and put it in a record array
+//read contents of each form input
+function pgEditBookTypeGetRec(){
+//define the new record
+var BookTypeRec
+BookTypeRec = {};
+BookTypeRec.TypeName = $('#pgEditBookTypeTypeName').val();
+BookTypeRec.Description = $('#pgEditBookTypeDescription').val();
+return BookTypeRec;
+}
+
+// display content of selected record on Edit Page
+//read record from local storage and display it on edit page.
+app.editBookType = function(TypeName){
+// get Book Type records.
+var BookTypeObj = app.getBookType();
+// lookup specific Book Type
+TypeName = TypeName.replace(/ /g,'-');
+var BookTypeRec = BookTypeObj[TypeName];
+$('#pgEditBookTypeheader h1').text('My Comic Books > Maintain Book Types');
+//update each control in the Edit page
+$('#pgEditBookTypeTypeName').val(BookTypeRec.TypeName);
+$('#pgEditBookTypeDescription').val(BookTypeRec.Description);
+};
+
+// clear the contents of the Edit Page controls
+//clear the form controls for data entry
+function pgEditBookTypeClear(){
+$('#pgEditBookTypeTypeName').val('');
+$('#pgEditBookTypeDescription').val('');
+}
+
+//display records in listview during runtime.
+app.pgEditBookTypedisplayBookType = function(){
+// get Book Type records.
+var BookTypeObj = app.getBookType();
+// create an empty string to contain html
+var html = '';
+// make sure your iterators are properly scoped
+var n;
+// loop over records and create a new list item for each
+//append the html to store the listitems.
+for (n in BookTypeObj){
+//get the record details
+var BookTypeRec = BookTypeObj[n];
+//define a new line from what we have defined
+var nItem = BookTypeLi;
+//update the href to the key
+nItem = nItem.replace(/Z2/g,n);
+//update the title to display, this might be multi fields
+var nTitle = '';
+//assign cleaned title
+nTitle = n.replace(/-/g,' ');
+//replace the title;
+nItem = nItem.replace(/Z1/g,nTitle);
+html += nItem;
+}
+//update the listview with the newly defined html structure.
+$('#pgEditBookTypeList').html(BookTypeHdr + html).listview('refresh');
+};
+
+//display records if they exist or tell user no records exist.
+app.pgEditBookTypecheckForBookTypeStorage = function(){
+//get records from localstorage.
+var BookTypeObj = app.getBookType();
+// are there existing Book Type records?
+if (!$.isEmptyObject(BookTypeObj)) {
+// yes there are. pass them off to be displayed
+app.pgEditBookTypedisplayBookType();
+} else {
+// nope, just show the placeholder
+$('#pgEditBookTypeList').html(BookTypeHdr + noBookType).listview('refresh');
+}
+};
+
+//read record from local storage and display it on edit page.
+app.pgEditBookTypeeditBookType = function(TypeName){
+// get Book Type records.
+var BookTypeObj = app.getBookType();
+// lookup specific Book Type
+TypeName = TypeName.replace(/ /g,'-');
+var BookTypeRec = BookTypeObj[TypeName];
+$('#pgEditBookTypeheader h1').text('My Comic Books > Maintain Book Types');
+//update each control in the Edit page
+$('#pgEditBookTypeTypeName').val(BookTypeRec.TypeName);
+$('#pgEditBookTypeDescription').val(BookTypeRec.Description);
+};
+
+// ***** Add Page *****
+//display records in listview during runtime.
+app.pgAddBookTypedisplayBookType = function(){
+// get Book Type records.
+var BookTypeObj = app.getBookType();
+// create an empty string to contain html
+var html = '';
+// make sure your iterators are properly scoped
+var n;
+// loop over records and create a new list item for each
+//append the html to store the listitems.
+for (n in BookTypeObj){
+//get the record details
+var BookTypeRec = BookTypeObj[n];
+//define a new line from what we have defined
+var nItem = BookTypeLi;
+//update the href to the key
+nItem = nItem.replace(/Z2/g,n);
+//update the title to display, this might be multi fields
+var nTitle = '';
+//assign cleaned title
+nTitle = n.replace(/-/g,' ');
+//replace the title;
+nItem = nItem.replace(/Z1/g,nTitle);
+html += nItem;
+}
+//update the listview with the newly defined html structure.
+$('#pgAddBookTypeList').html(BookTypeHdr + html).listview('refresh');
+};
+
+//display records if they exist or tell user no records exist.
+app.pgAddBookTypecheckForBookTypeStorage = function(){
+//get records from localstorage.
+var BookTypeObj = app.getBookType();
+// are there existing Book Type records?
+if (!$.isEmptyObject(BookTypeObj)) {
+// yes there are. pass them off to be displayed
+app.pgAddBookTypedisplayBookType();
+} else {
+// nope, just show the placeholder
+$('#pgAddBookTypeList').html(BookTypeHdr + noBookType).listview('refresh');
+}
+};
+
+//read record from local storage and display it on edit page.
+app.pgAddBookTypeeditBookType = function(TypeName){
+// get Book Type records.
+var BookTypeObj = app.getBookType();
+// lookup specific Book Type
+TypeName = TypeName.replace(/ /g,'-');
+var BookTypeRec = BookTypeObj[TypeName];
+$('#pgAddBookTypeheader h1').text('My Comic Books > Maintain Book Types');
+//update each control in the Edit page
+$('#pgAddBookTypeTypeName').val(BookTypeRec.TypeName);
+$('#pgAddBookTypeDescription').val(BookTypeRec.Description);
+};
+
+// get the contents of the add screen controls and store them in an object.
+//get the record to be saved and put it in a record array
+//read contents of each form input
+function pgAddBookTypeGetRec(){
+//define the new record
+var BookTypeRec
+BookTypeRec = {};
+BookTypeRec.TypeName = $('#pgAddBookTypeTypeName').val();
+BookTypeRec.Description = $('#pgAddBookTypeDescription').val();
+return BookTypeRec;
+}
+
+// clear the contents of the Add page controls
+//clear the form controls for data entry
+function pgAddBookTypeClear(){
+$('#pgAddBookTypeTypeName').val('');
+$('#pgAddBookTypeDescription').val('');
+}
+
+
+
+
+
+// define events to be fired during app execution.
+app.GradeBindings = function(){
+// code to run before showing the page that lists the records.
+//before records listing is shown, check for storage
+$(document).on('pagebeforechange', function(e, data){
+//get page to go to
+var toPage = data.toPage[0].id;
+switch (toPage) {
+case 'pgGrade':
+// restart the storage check
+app.checkForGradeStorage();
+break;
+case 'pgRptGrade':
+app.GradeRpt();
+break;
+case 'pgEditGrade':
+// clear the add page form fields
+pgEditGradeClear();
+app.pgEditGradecheckForGradeStorage();
+//load related select menus before the page shows
+break;
+case 'pgAddGrade':
+// clear the add page form fields
+pgAddGradeClear();
+app.pgAddGradecheckForGradeStorage();
+//load related select menus before the page shows
+break;
+default:
+}
+});
+
+//***** Add Page *****
+// code to run when back button is clicked on the add record page.
+// Back click event from Add Page
+$('#pgAddGradeBack').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+//which page are we coming from, if from sign in go back to it
+var pgFrom = $('#pgAddGrade').data('from');
+switch (pgFrom) {
+case "pgSignIn":
+$.mobile.changePage('#pgSignIn', {transition: 'slide'});
+break;
+default:
+// go back to the records listing screen
+$.mobile.changePage('#pgMenu', {transition: 'slide'});
+}
+});
+// code to run when the Save button is clicked on Add page.
+// Save click event on Add page
+$('#pgAddGradeSave').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+// save the Grade
+var GradeRec;
+//get form contents into an object
+GradeRec = pgAddGradeGetRec();
+//save object to localstorage
+app.addGrade(GradeRec);
+});
+// code to run when a get location button is clicked on the Add page.
+
+// delete button on Add Page
+$('#pgAddGradeDelete').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+//read the record key from form control
+var Grade = $('#pgAddGradeGrade').val();
+//show a confirm message box
+Grade = Grade.replace(/-/g,' ');
+$('#msgboxheader h1').text('Confirm Delete');
+$('#msgboxtitle').text(Grade);
+$('#msgboxprompt').text('Are you sure that you want to delete this grade?');
+$('#msgboxyes').data('method', 'deleteGrade');
+Grade = Grade.replace(/ /g,'-');
+$('#msgboxyes').data('id', Grade);
+$('#msgboxyes').data('topage', 'pgAddGrade');
+$('#msgboxno').data('topage', 'pgAddGrade');
+$.mobile.changePage('#msgbox', {transition: 'pop'});
+});
+
+//listview item click eventt.
+$(document).on('click', '#pgAddGradeList a', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+//get href of selected listview item and cleanse it
+var href = $(this)[0].href.match(/\?.*$/)[0];
+var Grade = href.replace(/^\?Grade=/,'');
+//read record from local storage and update screen.
+app.pgAddGradeeditGrade(Grade);
+});
+
+//***** Add Page - End *****
+
+//***** Listing Page *****
+// code to run when a listview item is clicked.
+//listview item click eventt.
+$(document).on('click', '#pgGradeList a', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+//get href of selected listview item and cleanse it
+var href = $(this)[0].href.match(/\?.*$/)[0];
+var Grade = href.replace(/^\?Grade=/,'');
+//change page to edit page.
+$.mobile.changePage('#pgEditGrade', {transition: 'slide'});
+//read record from local storage and update screen.
+app.editGrade(Grade);
+});
+
+// code to run when back button of record listing is clicked.
+// bind the back button of the records listing
+$('#pgGradeBack').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+// move to the defined previous page with the defined transition
+$.mobile.changePage('#pgMenu', {transition: 'slide'});
+});
+// code to run when New button on records listing is clicked.
+// New button click on records listing page
+$('#pgGradeNew').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+//we are accessing a new record from records listing
+$('#pgAddGrade').data('from', 'pgGrade');
+// show the active and user type elements
+$('#pgAddGradeheader h1').text('My Comic Books > Maintain Grades');
+$('#pgAddGradeUserType').show();
+$('#pgAddGradeActive').show();
+// move to the add page screen
+$.mobile.changePage('#pgAddGrade', {transition: 'slide'});
+});
+//***** Listing Page - End *****
+
+//***** Edit Page *****
+// code to run when the back button of the Edit Page is clicked.
+// Back click event on Edit page
+$('#pgEditGradeBack').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+// go back to the listing screen
+$.mobile.changePage('#pgGrade', {transition: 'slide'});
+});
+// code to run when the Update button is clicked in the Edit Page.
+// Update click event on Edit Page
+$('#pgEditGradeUpdate').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+// save the Grade
+var GradeRecNew;
+//get contents of Edit page controls
+GradeRecNew = pgEditGradeGetRec();
+//save updated records to localstorage
+app.updateGrade(GradeRecNew);
+});
+// code to run when the Delete button is clicked in the Edit Page.
+// delete button on Edit Page
+$('#pgEditGradeDelete').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+//read the record key from form control
+var Grade = $('#pgEditGradeGrade').val();
+//show a confirm message box
+Grade = Grade.replace(/-/g,' ');
+$('#msgboxheader h1').text('Confirm Delete');
+$('#msgboxtitle').text(Grade);
+$('#msgboxprompt').text('Are you sure that you want to delete this grade?');
+$('#msgboxyes').data('method', 'deleteGrade');
+Grade = Grade.replace(/ /g,'-');
+$('#msgboxyes').data('id', Grade);
+$('#msgboxyes').data('topage', 'pgEditGrade');
+$('#msgboxno').data('topage', 'pgEditGrade');
+$.mobile.changePage('#msgbox', {transition: 'pop'});
+});
+
+//listview item click eventt.
+$(document).on('click', '#pgEditGradeList a', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+//get href of selected listview item and cleanse it
+var href = $(this)[0].href.match(/\?.*$/)[0];
+var Grade = href.replace(/^\?Grade=/,'');
+//read record from local storage and update screen.
+app.pgEditGradeeditGrade(Grade);
+});
+
+//***** Edit Page - End *****
+
+
+//***** Report Page *****
+
+//back button on Report page
+// Back click event on Report page
+$('#pgRptGradeBack').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+// go back to the listing screen
+$.mobile.changePage('#pgReports', {transition: 'slide'});
+});
+//add new record from report page
+// New button click on records report page
+$('#pgRptGradeNew').on('click', function(e){
+e.preventDefault();
+e.stopImmediatePropagation();
+//we are accessing a new record from records report
+$('#pgAddGrade').data('from', 'pgRptGrade');
+// show the active and user type elements
+$('#pgAddGradeheader h1').text('My Comic Books > Maintain Grades');
+// move to the add page screen
+$.mobile.changePage('#pgAddGrade', {transition: 'slide'});
+});//***** Report Page - End *****
+
+
+//Our events are now fully defined.
+};
+// this defines methods/procedures accessed by our events.
+// get existing records from localstorage.
+//get all existing records from localstorage
+app.getGrade = function(){
+// get Grade records
+var GradeObj = localStorage['mycomicbooks-grade'];
+if (!GradeObj){
+//if there are no existing records, create an empty object
+GradeObj = {};
+//save empty object to localstorage
+localStorage['mycomicbooks-grade'] = JSON.stringify(GradeObj);
+} else {
+//records exist, parse them into an array as they are stored as text
+GradeObj = JSON.parse(GradeObj);
+}
+return GradeObj;
+};
+
+//display records in table during runtime.
+app.GradeRpt = function(){
+//clear the table and leave the header
+$('#RptGrade tbody tr').remove();
+// get Grade records.
+var GradeObj = app.getGrade();
+// create an empty string to contain all rows of the table
+var newrows = '';
+// make sure your iterators are properly scoped
+var n;
+// loop over records and create a new row for each
+// and append the newrows with each table row.
+for (n in GradeObj){
+//get the record details
+var GradeRec = GradeObj[n];
+//create each row
+var eachrow = '<tr>';
+eachrow += '<td>' + GradeRec.Grade + '</td>';
+eachrow += '<td>' + GradeRec.Description + '</td>';
+eachrow += '</tr>';
+//append each row to the newrows variable;
+newrows += eachrow;
+}
+// update the table
+$('#RptGrade').append(newrows);
+// refresh the table with new details
+$('#RptGrade').table('refresh');
+};
+
+// save the defined Add page object to local storage
+// add a new record to localstorage.
+app.addGrade = function(GradeRec){
+// get Grade records.
+var GradeObj = app.getGrade();
+// define a record object to store the current details
+var Grade = GradeRec.Grade;
+// cleanse the record key of spaces.
+Grade = Grade.replace(/ /g,'-');
+// update local storage object with new record.
+GradeObj[Grade] = GradeRec;
+//sort the objects.
+var keys = Object.keys(GradeObj);
+keys.sort();
+var sortedObject = Object();
+var i;
+for (i in keys) {
+key = keys[i];
+sortedObject[key] = GradeObj[key];
+}
+GradeObj = sortedObject;
+// save all existing records to localstorage.
+localStorage['mycomicbooks-grade'] = JSON.stringify(GradeObj);
+toastr.success('Grade record saved.', 'My Comic Books');
+//find which page are we coming from, if from sign in go back to it
+var pgFrom = $('#pgAddGrade').data('from');
+switch (pgFrom) {
+case "pgSignIn":
+$.mobile.changePage('#pgSignIn', {transition: 'slide'});
+break;
+default:
+// clear the edit page form fields
+pgAddGradeClear();
+//stay in the same page to add more records
+app.pgAddGradecheckForGradeStorage();}
+};
+
+// save the defined Edit page object to local storage
+
+//update an existing record and save to local storage
+app.updateGrade = function(GradeRecNew){
+// get Grade records.
+var GradeObj = app.getGrade();
+// lookup specific Grade
+var Grade = GradeRecNew.Grade;
+//cleanse the key of spaces
+Grade = Grade.replace(/ /g,'-');
+//get the record from localstorage
+var GradeRec = GradeObj[Grade];
+// assign new values to read record
+GradeRec.Grade = GradeRecNew.Grade;
+GradeRec.Description = GradeRecNew.Description;
+//update local storage object
+GradeObj[Grade] = GradeRec;
+//sort the objects
+var keys = Object.keys(GradeObj);
+keys.sort();
+var sortedObject = Object();
+var i;
+for (i in keys) {
+key = keys[i];
+sortedObject[key] = GradeObj[key];
+}
+GradeObj = sortedObject;
+//save all existing records to localstorage
+localStorage['mycomicbooks-grade'] = JSON.stringify(GradeObj);
+toastr.success('Grade record updated.', 'My Comic Books');
+// clear the edit page form fields
+pgEditGradeClear();
+app.pgEditGradecheckForGradeStorage();};
+
+// delete record from localstorage
+//delete a record from local storage using record key
+app.deleteGrade = function(Grade){
+// get the Grade records from localStorage
+var GradeObj = app.getGrade();
+// delete selected record key from Grade
+delete GradeObj[Grade];
+//sort the records
+var keys = Object.keys(GradeObj);
+keys.sort();
+var sortedObject = Object();
+var i;
+for (i in keys) {
+key = keys[i];
+sortedObject[key] = GradeObj[key];
+}
+GradeObj = sortedObject;
+// write all records back to localStorage
+localStorage['mycomicbooks-grade'] = JSON.stringify(GradeObj);
+toastr.success('Grade record deleted.', 'My Comic Books');
+//get the page to go to
+var toPage = $('#msgboxyes').data('topage');
+// show the page to display after a record is deleted
+$.mobile.changePage('#'+toPage, {transition: 'slide'});
+};
+
+// display existing records in listview of Records listing.
+//***** List Page *****
+//display records in listview during runtime.
+app.displayGrade = function(){
+// get Grade records.
+var GradeObj = app.getGrade();
+// create an empty string to contain html
+var html = '';
+// make sure your iterators are properly scoped
+var n;
+// loop over records and create a new list item for each
+//append the html to store the listitems.
+for (n in GradeObj){
+//get the record details
+var GradeRec = GradeObj[n];
+//define a new line from what we have defined
+var nItem = GradeLi;
+//update the href to the key
+nItem = nItem.replace(/Z2/g,n);
+//update the title to display, this might be multi fields
+var nTitle = '';
+//assign cleaned title
+nTitle = n.replace(/-/g,' ');
+//replace the title;
+nItem = nItem.replace(/Z1/g,nTitle);
+html += nItem;
+}
+//update the listview with the newly defined html structure.
+$('#pgGradeList').html(GradeHdr + html).listview('refresh');
+};
+
+// check localstorage for Records. This initializes LocalStorage if there are no records
+//display records if they exist or tell user no records exist.
+app.checkForGradeStorage = function(){
+//get records from localstorage.
+var GradeObj = app.getGrade();
+// are there existing Grade records?
+if (!$.isEmptyObject(GradeObj)) {
+// yes there are. pass them off to be displayed
+app.displayGrade();
+} else {
+// nope, just show the placeholder
+$('#pgGradeList').html(GradeHdr + noGrade).listview('refresh');
+}
+};
+
+// ***** Edit Page *****
+// get the contents of the edit screen controls and store them in an object.
+//get the record to be saved and put it in a record array
+//read contents of each form input
+function pgEditGradeGetRec(){
+//define the new record
+var GradeRec
+GradeRec = {};
+GradeRec.Grade = $('#pgEditGradeGrade').val();
+GradeRec.Description = $('#pgEditGradeDescription').val();
+return GradeRec;
+}
+
+// display content of selected record on Edit Page
+//read record from local storage and display it on edit page.
+app.editGrade = function(Grade){
+// get Grade records.
+var GradeObj = app.getGrade();
+// lookup specific Grade
+Grade = Grade.replace(/ /g,'-');
+var GradeRec = GradeObj[Grade];
+$('#pgEditGradeheader h1').text('My Comic Books > Maintain Grades');
+//update each control in the Edit page
+$('#pgEditGradeGrade').val(GradeRec.Grade);
+$('#pgEditGradeDescription').val(GradeRec.Description);
+};
+
+// clear the contents of the Edit Page controls
+//clear the form controls for data entry
+function pgEditGradeClear(){
+$('#pgEditGradeGrade').val('');
+$('#pgEditGradeDescription').val('');
+}
+
+//display records in listview during runtime.
+app.pgEditGradedisplayGrade = function(){
+// get Grade records.
+var GradeObj = app.getGrade();
+// create an empty string to contain html
+var html = '';
+// make sure your iterators are properly scoped
+var n;
+// loop over records and create a new list item for each
+//append the html to store the listitems.
+for (n in GradeObj){
+//get the record details
+var GradeRec = GradeObj[n];
+//define a new line from what we have defined
+var nItem = GradeLi;
+//update the href to the key
+nItem = nItem.replace(/Z2/g,n);
+//update the title to display, this might be multi fields
+var nTitle = '';
+//assign cleaned title
+nTitle = n.replace(/-/g,' ');
+//replace the title;
+nItem = nItem.replace(/Z1/g,nTitle);
+html += nItem;
+}
+//update the listview with the newly defined html structure.
+$('#pgEditGradeList').html(GradeHdr + html).listview('refresh');
+};
+
+//display records if they exist or tell user no records exist.
+app.pgEditGradecheckForGradeStorage = function(){
+//get records from localstorage.
+var GradeObj = app.getGrade();
+// are there existing Grade records?
+if (!$.isEmptyObject(GradeObj)) {
+// yes there are. pass them off to be displayed
+app.pgEditGradedisplayGrade();
+} else {
+// nope, just show the placeholder
+$('#pgEditGradeList').html(GradeHdr + noGrade).listview('refresh');
+}
+};
+
+//read record from local storage and display it on edit page.
+app.pgEditGradeeditGrade = function(Grade){
+// get Grade records.
+var GradeObj = app.getGrade();
+// lookup specific Grade
+Grade = Grade.replace(/ /g,'-');
+var GradeRec = GradeObj[Grade];
+$('#pgEditGradeheader h1').text('My Comic Books > Maintain Grades');
+//update each control in the Edit page
+$('#pgEditGradeGrade').val(GradeRec.Grade);
+$('#pgEditGradeDescription').val(GradeRec.Description);
+};
+
+// ***** Add Page *****
+//display records in listview during runtime.
+app.pgAddGradedisplayGrade = function(){
+// get Grade records.
+var GradeObj = app.getGrade();
+// create an empty string to contain html
+var html = '';
+// make sure your iterators are properly scoped
+var n;
+// loop over records and create a new list item for each
+//append the html to store the listitems.
+for (n in GradeObj){
+//get the record details
+var GradeRec = GradeObj[n];
+//define a new line from what we have defined
+var nItem = GradeLi;
+//update the href to the key
+nItem = nItem.replace(/Z2/g,n);
+//update the title to display, this might be multi fields
+var nTitle = '';
+//assign cleaned title
+nTitle = n.replace(/-/g,' ');
+//replace the title;
+nItem = nItem.replace(/Z1/g,nTitle);
+html += nItem;
+}
+//update the listview with the newly defined html structure.
+$('#pgAddGradeList').html(GradeHdr + html).listview('refresh');
+};
+
+//display records if they exist or tell user no records exist.
+app.pgAddGradecheckForGradeStorage = function(){
+//get records from localstorage.
+var GradeObj = app.getGrade();
+// are there existing Grade records?
+if (!$.isEmptyObject(GradeObj)) {
+// yes there are. pass them off to be displayed
+app.pgAddGradedisplayGrade();
+} else {
+// nope, just show the placeholder
+$('#pgAddGradeList').html(GradeHdr + noGrade).listview('refresh');
+}
+};
+
+//read record from local storage and display it on edit page.
+app.pgAddGradeeditGrade = function(Grade){
+// get Grade records.
+var GradeObj = app.getGrade();
+// lookup specific Grade
+Grade = Grade.replace(/ /g,'-');
+var GradeRec = GradeObj[Grade];
+$('#pgAddGradeheader h1').text('My Comic Books > Maintain Grades');
+//update each control in the Edit page
+$('#pgAddGradeGrade').val(GradeRec.Grade);
+$('#pgAddGradeDescription').val(GradeRec.Description);
+};
+
+// get the contents of the add screen controls and store them in an object.
+//get the record to be saved and put it in a record array
+//read contents of each form input
+function pgAddGradeGetRec(){
+//define the new record
+var GradeRec
+GradeRec = {};
+GradeRec.Grade = $('#pgAddGradeGrade').val();
+GradeRec.Description = $('#pgAddGradeDescription').val();
+return GradeRec;
+}
+
+// clear the contents of the Add page controls
+//clear the form controls for data entry
+function pgAddGradeClear(){
+$('#pgAddGradeGrade').val('');
+$('#pgAddGradeDescription').val('');
+}
+
+
+
+
+
+app.BindDevice = function(){
+document.addEventListener('deviceready', app.onDeviceReady, false);
+};
+
+app.onDeviceReady = function(){
+pictureSource = navigator.camera.PictureSourceType;
+destinationType = navigator.camera.DestinationType;
+isPhoneGapReady = true;
+};
+
+
+app.init();
+})(MyComicBooks);
+});
+
+</script>
+</body>
+</html>
